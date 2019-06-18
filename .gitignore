@@ -1,2 +1,7 @@
+# Packages and dependencies
+.mypy_cache/
+
+
 # VS Code
 .vscode/
+
