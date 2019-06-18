@@ -1,3 +1,16 @@
+# Temp and cache
+.pytest_cache
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Env vars, including credentials
+.env.private
+
 # Packages and dependencies
 .mypy_cache/
 

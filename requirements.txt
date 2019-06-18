@@ -1,1 +1,4 @@
 -r requirements-dev.txt
+
+python-dotenv           # https://github.com/theskumar/python-dotenv
+python-synology         # https://github.com/StaticCube/python-synology
