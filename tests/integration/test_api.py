@@ -1,2 +1,7 @@
+from src.api import create_api_client, print_sanity_test_report
+
+
 def test_whatevs():
-    from src import api
+    client = create_api_client()
+
+    print_sanity_test_report(client)
