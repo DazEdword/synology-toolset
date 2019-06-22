@@ -33,7 +33,9 @@ def print_sanity_test_report(client):
     for volume in volumes:
         print("ID:         " + str(volume))
         print("Status:     " + str(client.storage.volume_status(volume)))
-        print("% Used:     " + str(client.storage.volume_percentage_used(volume)) + " %")
+        print(
+            "% Used:     " + str(client.storage.volume_percentage_used(volume)) + " %"
+        )
 
     disks = client.storage.disks
     for disk in disks:
