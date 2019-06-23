@@ -14,7 +14,8 @@ __pycache__/
 # Packages and dependencies
 .mypy_cache/
 
-
 # VS Code
 .vscode/
 
+# Artifacts
+/artifacts
