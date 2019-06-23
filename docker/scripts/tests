@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -exo pipefail
+set -u
+
+mkdir artifacts || true
+
+echo "--> Cleaning out cached pyc files..."
+find . -name "*.pyc" -delete
+
+echo "--> Running tests with coverage..."
+
+coverage run \
+    --source=src \
+    --omit='docker/*' \
+    -- $(which pytest) -v --ignore=docker/ --ignore=tests/integration --durations=20 --tb=short --junit-xml=artifacts/test-report.xml $*
+
+echo "--> Coverage stats..."
+coverage html \
+    -d artifacts/coverage-html \
+    --omit='*tests.py,*__init__.py,*/test_*.py,docker/*'
+
+echo "--> Coverage report..."
+
+FAIL=80
+coverage report -m --fail-under=${FAIL} --omit='*tests.py,*__init__.py,*/test_*.py'
+
+COVERAGE_REPORT_EXIT_CODE=$?

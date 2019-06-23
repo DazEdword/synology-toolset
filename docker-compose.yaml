@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  build:
+    build:
+      dockerfile: docker/Dockerfile
+      context: .
+    command: ./docker/scripts/build
+    container_name: build
+    volumes:
+      - .:/app:delegated
+    environment:
+      USER: ${USER:-}
+  tests:
+    build:
+      dockerfile: docker/Dockerfile
+      context: .
+    command: ./docker/scripts/tests
+    container_name: tests
+    volumes:
+      - .:/app:delegated
+    environment:
+      # General
+      PYTHONUNBUFFERED: 'true'
+      PYTHONPATH: '/app/src'
+      ENVIRONMENT_NAME: 'test'
+    env_file:
+      - .env.sample

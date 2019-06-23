@@ -1,6 +1,9 @@
 # Temp and cache
 .pytest_cache
 
+# Coverage artifacts
+.coverage
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
