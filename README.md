@@ -1,4 +1,4 @@
-# Synology Playground
+# Synology Toolset
 
 A Python API wrapper and toolset for interfacing with Synology NAS devices using DiskStation Manager (DSM). The repository provides two different toolsets to communicate with your NAS:
 
