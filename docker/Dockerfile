@@ -9,8 +9,5 @@ RUN pip3 --no-cache-dir install -r requirements-dev.txt
 
 COPY docker/scripts docker/scripts
 
-# COPY . src
-# ENV PYTHONPATH "${PYTHONPATH}:/src"
-
 VOLUME /app
 WORKDIR /app
