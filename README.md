@@ -32,5 +32,42 @@ By default terminal access is disabled in your device. Enable it as described [i
 
 
 ## Compatibility
+
 Tested with Synology's DS218j model.
+
+## Development
+
+This software has been created and is maintained in Linux Mint, but developers should be able to contribute using practically any Unix platform. Before starting, the following tools will need to be installed and configured:
+
+* Docker
+* Git
+
+### Dependencies
+
+There are two types of dependencies:
+
+* Python Packages: Handled automatically thanks to `pip3`. They are included in requirements file, `requirements.txt` for the tools themselves, and `requirements-dev` for all peripheric development tools. 
+* Other Dependencies: In order to prevent the developers' system from cluttering, all external dependencies that are not installable with package managers are supposed to sit in the `dependencies` folder. Scripts are provided to install these automatically.
+
+### Development environment setup
+
+1- Clone the base repository on a location of your choice.
+
+```
+git clone git@github.com:DazEdword/synology-toolset.git
+```
+
+2- Configure your `.env.private` file and ssh keys as explained in the [credentials section](#credentials).
+
+
+### Running tests
+Docker should handle everything for you. Alternatively, a virtual environment could be created and all dependencies installed via scripts.
+
+#### Python unit tests
+Simply execute `tests.docker` script in the root, and it will install all dependencies and run the test suite.
+
+#### Bash unit tests
+
+
+
 

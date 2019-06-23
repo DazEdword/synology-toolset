@@ -21,4 +21,7 @@ __pycache__/
 .vscode/
 
 # Artifacts
-/artifacts
+artifacts/
+
+# External dependencies
+dependencies/
