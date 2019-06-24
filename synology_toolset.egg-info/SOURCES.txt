@@ -1,0 +1,9 @@
+README.md
+setup.py
+src/__init__.py
+src/constants.py
+src/settings.py
+synology_toolset.egg-info/PKG-INFO
+synology_toolset.egg-info/SOURCES.txt
+synology_toolset.egg-info/dependency_links.txt
+synology_toolset.egg-info/top_level.txt

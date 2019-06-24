@@ -1,7 +1,10 @@
 -r requirements.txt
 
 black
+bumpversion
 coverage
 flake8
 mypy
 pytest
+setuptools
+wheel
