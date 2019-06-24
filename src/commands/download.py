@@ -1,3 +1,5 @@
+import logging
+
 from constants import (
     DELUGE_USERNAME_NAME,
     DELUGE_PASSWORD_NAME,
@@ -5,6 +7,7 @@ from constants import (
     SYNOLOGY_USERNAME_NAME,
     SYNOLOGY_PORT_NAME,
 )
+from logging import Logger
 from fabric import Connection
 
 from settings import get_environmental_variable
@@ -20,6 +23,6 @@ def download_torrent_with_deluge():
 
     try:
         result = connection.run(".scripts/hello-world.sh")
-        print(result)
+        logging.info(result)
     except Exception as e:
-        print(e)
+        logging.error("An error occurred: {e}")
