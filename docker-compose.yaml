@@ -21,7 +21,7 @@ services:
     environment:
       # General
       PYTHONUNBUFFERED: 'true'
-      PYTHONPATH: '/app/src'
+      PYTHONPATH: '/app/synology-toolset'
       ENVIRONMENT_NAME: 'test'
     env_file:
       - .env.sample

@@ -11,7 +11,7 @@ find . -name "*.pyc" -delete
 echo "--> Running tests with coverage..."
 
 coverage run \
-    --source=src \
+    --source=synology-toolset \
     --omit='docker/*' \
     -- $(which pytest) -v --ignore=docker/ --ignore=tests/integration --durations=20 --tb=short --junit-xml=artifacts/test-report.xml $*
 

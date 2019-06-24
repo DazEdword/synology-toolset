@@ -1,8 +1,12 @@
 README.md
 setup.py
-src/__init__.py
-src/constants.py
-src/settings.py
+synology-toolset/__init__.py
+synology-toolset/constants.py
+synology-toolset/settings.py
+synology-toolset/commands/__init__.py
+synology-toolset/commands/download.py
+synology-toolset/common/__init__.py
+synology-toolset/common/logging.py
 synology_toolset.egg-info/PKG-INFO
 synology_toolset.egg-info/SOURCES.txt
 synology_toolset.egg-info/dependency_links.txt
