@@ -22,13 +22,15 @@ Finding out your local IP will depend on your OS, router configuration and other
 
 *Note: Fore security reasons remember not share your personal credentials file or password! Do not commit to repository, or share it with anybody. That file should be private and stored safely, locally.*
 
-### Optional: SSH key
+### SSH key
 
-_TODO_: Add instructions
+`synology-toolset` uses `fabric` (built in top of `paramiko`) to handle SSH connections. Certain assumptions are made regarding credentials configurations and SSH keys. It is recommended to set up a SSH Key in your default SO's SSH location. This [guide](https://help.github.com/en/enterprise/2.16/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), although focused on GitHub, can assist. Make sure to store the private key in your default location (`~/.ssh` for Unix systems), and make a note of your public key contents or location, as it will be required for the next step.
 
 ### Enabling NAS SSH access
 
 By default terminal access is disabled in your device. Enable it as described [in the official support](https://www.synology.com/en-global/knowledgebase/SRM/help/SRM/RouterApp/admin_services#t1_1).
+
+Then, the public key needs to be added to authorized_keys in your device, and correct permissions set This handy [guide](https://blog.aaronlenoir.com/2018/05/06/ssh-into-synology-nas-with-ssh-key/) may help.
 
 
 ## Compatibility
