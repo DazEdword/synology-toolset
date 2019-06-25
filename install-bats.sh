@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DEPENDENCIES_PATH="dependencies"
-GIT_REPO="https://github.com/kward/shunit2.git"
+GIT_REPO="https://github.com/sstephenson/bats.git"
 GIT_BRANCH="master"
 
 set -eo pipefail
@@ -9,10 +9,10 @@ set -u
 
 FORCE=${1:--keep}
 
-function get_shunit2_repo_and_branch() {
+function get_bats_repo_and_branch() {
     FORCE=$1
     PREV_PWD=$PWD
-    CHECKOUT_DIR="shunit2"
+    CHECKOUT_DIR="bats"
 
     if [ ! -d "$DEPENDENCIES_PATH" ]; then
         mkdir -p "$DEPENDENCIES_PATH"
@@ -47,7 +47,7 @@ function pull_repository() {
     cd $PREV_PWD
 }
 
-get_shunit2_repo_and_branch "$FORCE"
+get_bats_repo_and_branch "$FORCE"
 
 STATUS=${?}
 
