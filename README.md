@@ -60,7 +60,13 @@ git clone git@github.com:DazEdword/synology-toolset.git
 ```
 
 2- Configure your `.env.private` file and ssh keys as explained in the [credentials section](#credentials).
+3- Ensure all scripts are executable.
 
+```
+cd </path/to/project/root>
+find . -type f -iname "*.sh" -exec chmod +x {} \;
+find docker/scripts/ -type f -exec chmod +x {} \;
+```
 
 ### Running tests
 Docker should handle everything for you. Alternatively, a virtual environment could be created and all dependencies installed via scripts.
