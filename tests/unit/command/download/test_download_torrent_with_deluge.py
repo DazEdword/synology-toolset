@@ -38,10 +38,9 @@ def test_gets_username_details(get_environmental_variable_mock, *_):
     ],
 )
 @patch("commands.download.Config")
-@patch("commands.download.Responder")
 @patch("commands.download.Connection")
 def test_creates_fabric_connection_with_correct_sudo_config(
-    connection_mock, responder_mock, config_mock, *_
+    connection_mock, config_mock, *_
 ):
     actual = download_torrent_with_deluge(TORRENT_URL)
 
@@ -65,10 +64,9 @@ def test_creates_fabric_connection_with_correct_sudo_config(
     ],
 )
 @patch("commands.download.Config")
-@patch("commands.download.Responder")
 @patch("commands.download.Connection")
 def test_creates_fabric_connection_with_correct_credentials(
-    connection_mock, responder_mock, config_mock, *_
+    connection_mock, config_mock, *_
 ):
     actual = download_torrent_with_deluge(TORRENT_URL)
 

@@ -32,8 +32,6 @@ def download_torrent_with_deluge(torrent_url):
 
     connection = Connection(host=host, user=user, config=config)
 
-    sudopass = Responder(pattern=r"\[sudo\] password:", response=f"{password}\n")
-
     try:
         command = f'.scripts/deluge-download.sh "{deluge_connection}" {deluge_user} {deluge_password} "{torrent_url}"'
         result = connection.sudo(command)
