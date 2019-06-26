@@ -21,6 +21,8 @@ function synopkg(){
   echo "called fake synopkg"
 }
 
+# Run with ./dependencies/bats/bin/bats tests/scripts/deluge-download.bats
+
 @test "exits with useful message and correct status when magnet is not set" {
   run "$SCRIPT_UNDER_TEST"
   [ "$status" -eq 1 ]

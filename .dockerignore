@@ -2,3 +2,4 @@
 !requirements*.txt
 !docker/
 !install-bats.sh
+!install-bats-core.sh

@@ -5,6 +5,7 @@ RUN pip install --upgrade pip
 COPY requirements.txt requirements.txt
 COPY requirements-dev.txt requirements-dev.txt
 COPY install-bats.sh install-bats.sh
+COPY install-bats-core.sh install-bats-core.sh
 
 RUN pip3 --no-cache-dir install -r requirements-dev.txt
 RUN ./install-bats.sh
