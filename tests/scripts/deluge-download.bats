@@ -1,5 +1,7 @@
 #!/usr/bin/env bats
 
+load helpers/mocks/stub
+
 function setup(){
     ORIGINAL_PATH="$BATS_TEST_DIRNAME"
     MAGNET_FAKE="magnet:?xt=urn:btih:abc123&dn=archlinux-2019.06.01-x86_64.iso&tr=udp://tracker.archlinux.org:6969&tr=http://localhost.loc:6969/announce"
