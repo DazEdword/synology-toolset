@@ -1,8 +1,9 @@
 #!/usr/bin/env bats
 
 function setup(){
-    echo "Setup on the go!"
     ORIGINAL_PATH="$BATS_TEST_DIRNAME"
+    MAGNET_FAKE="magnet:?xt=urn:btih:abc123&dn=archlinux-2019.06.01-x86_64.iso&tr=udp://tracker.archlinux.org:6969&tr=http://localhost.loc:6969/announce"
+
     cd $ORIGINAL_PATH
     cd ../..
 
@@ -16,19 +17,32 @@ function teardown()
     cd "$ORIGINAL_PATH"
 }
 
-@test "just an example to understand bats" {
+function synopkg(){ 
+  echo "called fake synopkg"
+}
+
+@test "exits with useful message and correct status when magnet is not set" {
   run "$SCRIPT_UNDER_TEST"
-  echo "$output"
   [ "$status" -eq 1 ]
-#   [ "$output" = "foo: no such file 'nonexistent_filename'" ]
+  [ "$output" = "No magnet was provided. Aborting download." ]
 }
 
-@test "addition using bc" {
-  result="$(echo 2+2 | bc)"
-  [ "$result" -eq 4 ]
+@test "prints message when magnet is found" {
+  # Mocking
+  export -f synopkg
+
+  run "$SCRIPT_UNDER_TEST" $MAGNET_FAKE
+  echo "$output"
+  #[ "$status" -eq 0 ]
+  [ "$output" = "Preparing to download: magnet:?xt=urn:btih:abc123&dn=archlinux-2019.06.01-x86_64.iso&tr=udp://tracker.archlinux.org:6969&tr=http://localhost.loc:6969/announce" ]
 }
 
-@test "addition using dc" {
-  result="$(echo 2 2+p | dc)"
-  [ "$result" -eq 4 ]
-}
+# @test "addition using bc" {
+#   result="$(echo 2+2 | bc)"
+#   [ "$result" -eq 4 ]
+# }
+
+# @test "addition using dc" {
+#   result="$(echo 2 2+p | dc)"
+#   [ "$result" -eq 4 ]
+# }

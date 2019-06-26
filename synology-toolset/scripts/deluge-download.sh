@@ -1,14 +1,16 @@
 #!/bin/bash
 # This script is intended to be run with root privileges
 
+set -e
+
 # Validate download magnet argument
 magnet=$1
 
-if [[ "$magnet" -gt "-1" ]]; then
-	echo "Preparing to download magnet: $magnet"
+if [[ -n "$magnet" ]]; then
+	echo "Preparing to download: $magnet"
 else
 	echo "No magnet was provided. Aborting download."
-	exit
+	exit 1
 fi
 
 # Ensure Deluge is running
@@ -25,7 +27,7 @@ pass=$3
 
 if [ -z "$user" ] || [ -z "$pass" ]; then
 	echo "Missing user and/or password arguments."
-	exit
+	exit 1
 else
     echo "Found credentials for user $user"
 fi
