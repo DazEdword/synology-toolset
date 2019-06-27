@@ -1,4 +1,5 @@
 from typing import Any
+from unittest.mock import patch
 
 import pytest
 from models.base import Model
@@ -11,6 +12,7 @@ class Alice(Model):
 
     def __repr__(self) -> str:
         return f"<Alice field_1={self.field_1} field_2={self.field_2} field_3={self.field_3}>"
+
 
 class Bob(Model):
     field_1 = None
@@ -28,7 +30,6 @@ class Clive(Model):
 
     def __repr__(self) -> str:
         return f"<Clive field_1={self.field_1} field_2={self.field_2} field_3={self.field_3}>"
-
 
 
 def test_raises_type_error_if_field_provided_that_does_not_exist_in_model():
@@ -55,7 +56,9 @@ def test_sets_values_provided_against_specified_fields():
         (Alice(field_1="dave"), Alice(field_1="dave", field_2=None), True),
     ],
 )
-def test_can_compare_two_instances_of_a_model_based_on_their_fields(model_1: Model, model_2: Model, expected: bool):
+def test_can_compare_two_instances_of_a_model_based_on_their_fields(
+    model_1: Model, model_2: Model, expected: bool
+):
     actual = model_1 == model_2
     assert actual is expected
 

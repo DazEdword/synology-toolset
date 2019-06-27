@@ -12,7 +12,9 @@ class ModelBase(type):
 
     DoesNotExist: ObjectDoesNotExist = None
 
-    def __new__(cls, name: str, bases: Tuple[type], attrs: Dict[str, Any], **kwargs: Any) -> Any:
+    def __new__(
+        cls, name: str, bases: Tuple[type], attrs: Dict[str, Any], **kwargs: Any
+    ) -> Any:
         new_class = super().__new__(cls, name, bases, attrs, **kwargs)  # type: ignore
         parents = [base for base in bases if isinstance(base, ModelBase)]
 
@@ -23,7 +25,11 @@ class ModelBase(type):
 
         # Create list of defined fields on FIELDS for future validation and assignment.
         # Exclude built-in properties and any callable methods.
-        fields = [attr for attr, value in attrs.items() if not attr.startswith("__") and not callable(value)]
+        fields = [
+            attr
+            for attr, value in attrs.items()
+            if not attr.startswith(("_", "__")) and not callable(value)
+        ]
         new_class.FIELDS = fields
         new_class.DoesNotExist = ObjectDoesNotExist
         return new_class
@@ -47,7 +53,9 @@ class Model(metaclass=ModelBase):
     def __init__(self, **data: Any) -> None:
         for key, value in data.items():
             if key not in self.FIELDS:
-                raise TypeError(f"{self.__class__.__name__}() got unexpected keyword argument '{key}'")
+                raise TypeError(
+                    f"{self.__class__.__name__}() got unexpected keyword argument '{key}'"
+                )
 
             if hasattr(self, f"set_{key}"):
                 setter = getattr(self, f"set_{key}")
