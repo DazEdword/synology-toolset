@@ -1,15 +1,15 @@
-from models.config.syno import Syno
+from models.config.syno import SynoConfig
 
 
 def test_syno_config_initialisation_has_correct_prefix():
-    actual = Syno()
+    actual = SynoConfig()
 
     expected = "SYNOLOGY"
     assert actual._config_prefix == expected
 
 
 def test_syno_config_initialisation_has_correct_fields():
-    actual = Syno().FIELDS
+    actual = SynoConfig().FIELDS
 
     assert len(actual) == 4
-    assert actual ==['username', 'password', 'port', 'ip']
+    assert actual == ["username", "password", "port", "ip"]

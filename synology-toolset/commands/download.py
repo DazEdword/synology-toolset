@@ -9,6 +9,8 @@ from constants import (
     SYNOLOGY_USERNAME_NAME,
     SYNOLOGY_PASSWORD_NAME,
 )
+
+from models.config.syno import SynoConfig
 from logging import Logger
 from fabric import Connection, Config
 from invoke import Responder
@@ -17,9 +19,7 @@ from settings import get_environmental_variable
 
 
 def download_torrent_with_deluge(torrent_url):
-    host = get_environmental_variable(SYNOLOGY_IP_NAME)
-    user = get_environmental_variable(SYNOLOGY_USERNAME_NAME)
-    password = get_environmental_variable(SYNOLOGY_PASSWORD_NAME)
+    syno_config = SynoConfig()
 
     deluge_ip = get_environmental_variable(DELUGE_IP_NAME)
     deluge_port = get_environmental_variable(DELUGE_PORT_NAME)
@@ -28,9 +28,11 @@ def download_torrent_with_deluge(torrent_url):
     deluge_user = get_environmental_variable(DELUGE_USERNAME_NAME)
     deluge_password = get_environmental_variable(DELUGE_PASSWORD_NAME)
 
-    config = Config(overrides={"sudo": {"password": password}})
+    config = Config(overrides={"sudo": {"password": syno_config.password}})
 
-    connection = Connection(host=host, user=user, config=config)
+    connection = Connection(
+        host=syno_config.ip, user=syno_config.username, config=config
+    )
 
     try:
         command = f'.scripts/deluge-download.sh "{deluge_connection}" {deluge_user} {deluge_password} "{torrent_url}"'

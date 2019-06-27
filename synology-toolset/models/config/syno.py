@@ -1,7 +1,7 @@
 from models.config.base import ConfigBase
 
 
-class Syno(ConfigBase):
+class SynoConfig(ConfigBase):
     username: str = None
     password: str = None
     port: str = None

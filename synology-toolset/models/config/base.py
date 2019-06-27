@@ -17,9 +17,7 @@ class ConfigBase(Model):
             return
 
         for field in self.FIELDS:
-            setattr(
-                self, field, self.get_field_from_config(self._config_prefix, field)
-            )
+            setattr(self, field, self.get_field_from_config(self._config_prefix, field))
 
     def get_field_from_config(self, config_prefix, field):
         return get_environmental_variable(f"{config_prefix}_{field.upper()}")
