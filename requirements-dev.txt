@@ -4,6 +4,7 @@ black
 bumpversion
 coverage
 flake8
+freezegun
 mypy
 pytest
 setuptools

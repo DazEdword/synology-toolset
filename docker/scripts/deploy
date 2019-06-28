@@ -1,3 +1,6 @@
 #!/bin/bash
 
 
+"""
+Install scripts remotely into target device's ~/.scripts.
+"""
