@@ -9,10 +9,7 @@ TORRENT_URL = "https://www.archlinux.org/releng/releases/2019.06.01/torrent/"
 @patch("commands.download.Connection")
 @patch("commands.download.DelugeConfig", return_value=create_deluge_config_mock())
 @patch("commands.download.SynoConfig", return_value=create_syno_config_mock())
-@patch("commands.download.get_environmental_variable")
-def test_gets_synology_config_details(
-    get_environmental_variable_mock, syno_config_mock, deluge_config_mock, *_
-):
+def test_gets_synology_config_details(syno_config_mock, deluge_config_mock, *_):
     actual = download_torrent_with_deluge(TORRENT_URL)
     syno_config_mock.assert_called_once()
 
@@ -20,10 +17,7 @@ def test_gets_synology_config_details(
 @patch("commands.download.Connection")
 @patch("commands.download.SynoConfig", return_value=create_syno_config_mock())
 @patch("commands.download.DelugeConfig", return_value=create_deluge_config_mock())
-@patch("commands.download.get_environmental_variable")
-def test_gets_deluge_config_details(
-    get_environmental_variable_mock, deluge_config_mock, *_
-):
+def test_gets_deluge_config_details(deluge_config_mock, *_):
     actual = download_torrent_with_deluge(TORRENT_URL)
     deluge_config_mock.assert_called_once()
 

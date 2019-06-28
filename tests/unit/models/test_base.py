@@ -1,5 +1,5 @@
 from typing import Any
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 import pytest
 from models.base import Model
@@ -70,3 +70,41 @@ def test_uses_set_method_if_provided_for_field():
     # Assert
     assert model.field_1 == "modified - original"
     assert model.field_2 == "original"
+
+
+def test_dict_uses_dict_value_for_model_fields():
+    # Act
+    model = Bob(field_1="A", field_2=Alice(field_2="alice"), field_3="C")
+
+    # Assert
+    actual = model.dict
+    assert actual["field_2"] == {"field_1": None, "field_2": "alice", "field_3": None}
+
+
+def test_validate_uses_per_field_validator():
+    # Act
+    model = Bob(field_1="original", field_2="original")
+
+    with patch("models.base.getattr") as getattr_mock:
+        model.validate()
+        assert getattr_mock.call_count == 3
+        assert getattr_mock.call_args_list[0][0][1] == "validate_field_1"
+        assert getattr_mock.call_args_list[1][0][1] == "validate_field_2"
+        assert getattr_mock.call_args_list[2][0][1] == "validate_field_3"
+
+
+def test_validate_ignores_validation_when_field_has_no_validator():
+    # Arrange
+    model = Bob(field_1="original", field_2="original")
+
+    with patch("models.base.getattr") as getattr_mock:
+        first_validator = Mock()
+        error_validator = AttributeError()
+        third_validator = Mock()
+        getattr_mock.side_effect = [first_validator, error_validator, third_validator]
+
+        # Act
+        model.validate()
+        assert getattr_mock.call_count == 3
+        assert first_validator.called is True
+        assert third_validator.called is True

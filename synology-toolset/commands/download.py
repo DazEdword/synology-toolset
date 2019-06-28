@@ -1,22 +1,8 @@
 import logging
 
-from constants import (
-    DELUGE_USERNAME_NAME,
-    DELUGE_PASSWORD_NAME,
-    DELUGE_IP_NAME,
-    DELUGE_PORT_NAME,
-    SYNOLOGY_IP_NAME,
-    SYNOLOGY_USERNAME_NAME,
-    SYNOLOGY_PASSWORD_NAME,
-)
-
 from models.config.syno import SynoConfig
 from models.config.deluge import DelugeConfig
-from logging import Logger
 from fabric import Connection, Config
-from invoke import Responder
-
-from settings import get_environmental_variable
 
 
 def download_torrent_with_deluge(torrent_url):

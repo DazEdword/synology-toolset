@@ -22,7 +22,7 @@ coverage html \
 
 echo "--> Coverage report..."
 
-FAIL=80
+FAIL=95
 coverage report -m --fail-under=${FAIL} --omit='*tests.py,*__init__.py,*/test_*.py'
 
 COVERAGE_REPORT_EXIT_CODE=$?
