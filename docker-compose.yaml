@@ -10,6 +10,16 @@ services:
       - .:/app:delegated
     environment:
       USER: ${USER:-}
+  deploy:
+    build:
+      dockerfile: docker/Dockerfile
+      context: .
+    command: ./docker/scripts/deploy
+    container_name: deploy
+    volumes:
+      - .:/app:delegated
+    environment:
+      USER: ${USER:-}
   tests:
     build:
       dockerfile: docker/Dockerfile

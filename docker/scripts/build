@@ -1,7 +1,8 @@
-
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -eo pipefail
 set -u
 
-echo "This is just an example! Nothing to build yet."
+echo "Building pypi package..."
+python3 setup.py sdist bdist_wheel
+echo "Done!"

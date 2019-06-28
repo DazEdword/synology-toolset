@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eox pipefail
+set -u
+
+docker-compose build build
+docker-compose run --rm build docker/scripts/build

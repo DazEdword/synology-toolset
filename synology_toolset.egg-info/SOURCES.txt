@@ -6,6 +6,7 @@ synology-toolset/settings.py
 synology-toolset/commands/__init__.py
 synology-toolset/commands/download.py
 synology-toolset/common/__init__.py
+synology-toolset/common/exceptions.py
 synology-toolset/common/logging.py
 synology_toolset.egg-info/PKG-INFO
 synology_toolset.egg-info/SOURCES.txt
