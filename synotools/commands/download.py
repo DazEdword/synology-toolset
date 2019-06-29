@@ -31,7 +31,7 @@ if __name__ == "__main__":
     torrent_url = None
 
     try:
-        torrent = sys.argv[1]
+        torrent_url = sys.argv[1]
     except IndexError:
         pass
 
