@@ -12,17 +12,12 @@ echo "--> Running tests with coverage..."
 
 coverage run \
     --source=synology-toolset \
-    --omit='docker/*' \
-    -- $(which pytest) -v --ignore=docker/ --ignore=tests/integration --durations=20 --tb=short --junit-xml=artifacts/test-report.xml $*
+    -- $(which pytest) -v --durations=20 --tb=short --junit-xml=artifacts/test-report.xml $*
 
 echo "--> Coverage stats..."
-coverage html \
-    -d artifacts/coverage-html \
-    --omit='*tests.py,*__init__.py,*/test_*.py,docker/*'
+coverage html
 
 echo "--> Coverage report..."
-
-FAIL=95
-coverage report -m --fail-under=${FAIL} --omit='*tests.py,*__init__.py,*/test_*.py'
+coverage report -m
 
 COVERAGE_REPORT_EXIT_CODE=$?
