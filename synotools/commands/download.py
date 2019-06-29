@@ -1,4 +1,5 @@
 import logging
+import sys
 
 from fabric import Connection, Config
 
@@ -24,3 +25,14 @@ def download_torrent_with_deluge(torrent_url):
         logging.info(result)
     except Exception as e:
         logging.error(f"An error occurred: {e}")
+
+
+if __name__ == "__main__":
+    torrent_url = None
+
+    try:
+        torrent = sys.argv[1]
+    except IndexError:
+        pass
+
+    download_torrent_with_deluge(torrent_url)

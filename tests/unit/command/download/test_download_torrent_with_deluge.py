@@ -7,7 +7,9 @@ TORRENT_URL = "https://www.archlinux.org/releng/releases/2019.06.01/torrent/"
 
 
 @patch("synotools.commands.download.Connection")
-@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch(
+    "synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock()
+)
 @patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
 def test_gets_synology_config_details(syno_config_mock, deluge_config_mock, *_):
     download_torrent_with_deluge(TORRENT_URL)
@@ -16,14 +18,18 @@ def test_gets_synology_config_details(syno_config_mock, deluge_config_mock, *_):
 
 @patch("synotools.commands.download.Connection")
 @patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
-@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch(
+    "synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock()
+)
 def test_gets_deluge_config_details(deluge_config_mock, *_):
     download_torrent_with_deluge(TORRENT_URL)
     deluge_config_mock.assert_called_once()
 
 
 @patch("synotools.commands.download.logging")
-@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch(
+    "synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock()
+)
 @patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
 @patch("synotools.commands.download.Config")
 @patch("synotools.commands.download.Connection")
@@ -38,7 +44,9 @@ def test_creates_fabric_connection_with_correct_sudo_config(
 
 
 @patch("synotools.commands.download.logging")
-@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch(
+    "synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock()
+)
 @patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
 @patch("synotools.commands.download.Config")
 @patch("synotools.commands.download.Connection")
@@ -54,7 +62,9 @@ def test_creates_fabric_connection_with_correct_credentials(
     connection_mock.return_value.sudo.assert_called_once_with(expected_command)
 
 
-@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch(
+    "synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock()
+)
 @patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
 @patch("synotools.commands.download.Config")
 @patch("synotools.commands.download.logging")
