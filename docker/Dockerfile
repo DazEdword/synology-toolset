@@ -11,6 +11,7 @@ RUN pip3 --no-cache-dir install -r requirements-dev.txt
 RUN ./install-bats.sh
 
 COPY docker/scripts docker/scripts
+COPY synology-toolset synology-toolset
 
 VOLUME /app
 WORKDIR /app

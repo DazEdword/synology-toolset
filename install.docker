@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eox pipefail
+set -u
+
+docker-compose build install
+docker-compose run --rm install docker/scripts/install

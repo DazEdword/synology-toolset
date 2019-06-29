@@ -20,6 +20,14 @@ services:
       - .:/app:delegated
     environment:
       USER: ${USER:-}
+  install:
+    build:
+      dockerfile: docker/Dockerfile
+      context: .
+    command: ./docker/scripts/install
+    container_name: install
+    volumes:
+      - .:/app:delegated
   tests:
     build:
       dockerfile: docker/Dockerfile

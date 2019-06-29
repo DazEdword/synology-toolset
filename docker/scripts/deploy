@@ -2,5 +2,5 @@
 
 
 """
-Install scripts remotely into target device's ~/.scripts.
+Deply source code to Pypi
 """

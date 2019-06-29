@@ -1,5 +1,6 @@
 *
 !requirements*.txt
 !docker/
+!synology-toolset/
 !install-bats.sh
 !install-bats-core.sh
