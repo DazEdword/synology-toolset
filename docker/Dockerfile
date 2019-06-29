@@ -9,6 +9,11 @@ COPY requirements-dev.txt requirements-dev.txt
 COPY install-bats.sh install-bats.sh
 COPY install-bats-core.sh install-bats-core.sh
 
+ARG SSH_KEY_NAME
+RUN echo "$SSH_KEY_NAME"
+
+RUN  echo "    IdentityFile ~/.ssh/$SSH_KEY_NAME" >> /etc/ssh/ssh_config
+
 RUN pip3 --no-cache-dir install -r requirements-dev.txt
 RUN ./install-bats.sh
 

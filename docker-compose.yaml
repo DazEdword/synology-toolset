@@ -24,6 +24,7 @@ services:
     container_name: install
     volumes:
       - .:/app:delegated
+      - ~/.ssh:/root/.ssh
     env_file:
       - .env.private
   tests:

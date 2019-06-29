@@ -3,5 +3,7 @@
 set -eox pipefail
 set -u
 
-docker-compose build install
+ssh_key_name=$1
+
+docker-compose build --build-arg SSH_KEY_NAME=$ssh_key_name install
 docker-compose run --rm install docker/scripts/install

@@ -4,6 +4,5 @@ set -eo pipefail
 set -u
 
 echo "Installing scripts to NAS..."
-echo "$PYTHONPATH"
 python3 synotools/commands/install.py
 echo "Done!"
