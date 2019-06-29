@@ -22,11 +22,11 @@ def zip_folder(filename, origin_dir, destination_dir=None):
         for filename in files:
             file_path = os.path.join(root, filename)
             file_paths.append(file_path)
-    
+
     logging.info(f"Preparing to zip files: {file_paths}")
 
     # Writing files to a zipfile
-    zip_file = zipfile.ZipFile(zipname, 'w')
+    zip_file = zipfile.ZipFile(zipname, "w")
     with zip_file:
         for file in file_paths:
             flattened_file_path = os.path.basename(file)

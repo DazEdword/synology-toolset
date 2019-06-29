@@ -3,6 +3,7 @@ branch = True
 omit = 
     docker/*
     tests/integration
+    */__init__.py
 
 [report]
 fail_under = 95

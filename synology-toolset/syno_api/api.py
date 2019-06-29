@@ -1,9 +1,4 @@
-from constants import (
-    SYNOLOGY_IP_NAME,
-    SYNOLOGY_PASSWORD_NAME,
-    SYNOLOGY_PORT_NAME,
-    SYNOLOGY_USERNAME_NAME,
-)
+from models.config.syno import SynoConfig
 from settings import get_environmental_variable
 
 from SynologyDSM import SynologyDSM
@@ -11,11 +6,11 @@ from SynologyDSM import SynologyDSM
 
 def create_api_client():
     print("Creating Valid API Client")
+
+    syno_config = SynoConfig()
+
     client = SynologyDSM(
-        get_environmental_variable(SYNOLOGY_IP_NAME),
-        get_environmental_variable(SYNOLOGY_PORT_NAME),
-        get_environmental_variable(SYNOLOGY_USERNAME_NAME),
-        get_environmental_variable(SYNOLOGY_PASSWORD_NAME),
+        syno_config.ip, syno_config.port, syno_config.username, syno_config.password
     )
 
     return client

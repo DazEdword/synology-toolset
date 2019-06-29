@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -exo pipefail
+set -o pipefail
 set -u
 
 mkdir artifacts || true
@@ -21,3 +21,9 @@ echo "--> Coverage report..."
 coverage report -m
 
 COVERAGE_REPORT_EXIT_CODE=$?
+
+if [[ COVERAGE_REPORT_EXIT_CODE -gt 0 ]]; then
+    echo >&2 "Coverage exit code: $COVERAGE_REPORT_EXIT_CODE"
+else
+    echo "Coverage exit code: $COVERAGE_REPORT_EXIT_CODE"
+fi

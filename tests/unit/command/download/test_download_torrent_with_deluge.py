@@ -1,4 +1,4 @@
-from unittest.mock import patch, Mock
+from unittest.mock import patch
 
 from commands.download import download_torrent_with_deluge
 from tests.unit.fixtures import create_syno_config_mock, create_deluge_config_mock
@@ -10,7 +10,7 @@ TORRENT_URL = "https://www.archlinux.org/releng/releases/2019.06.01/torrent/"
 @patch("commands.download.DelugeConfig", return_value=create_deluge_config_mock())
 @patch("commands.download.SynoConfig", return_value=create_syno_config_mock())
 def test_gets_synology_config_details(syno_config_mock, deluge_config_mock, *_):
-    actual = download_torrent_with_deluge(TORRENT_URL)
+    download_torrent_with_deluge(TORRENT_URL)
     syno_config_mock.assert_called_once()
 
 
@@ -18,7 +18,7 @@ def test_gets_synology_config_details(syno_config_mock, deluge_config_mock, *_):
 @patch("commands.download.SynoConfig", return_value=create_syno_config_mock())
 @patch("commands.download.DelugeConfig", return_value=create_deluge_config_mock())
 def test_gets_deluge_config_details(deluge_config_mock, *_):
-    actual = download_torrent_with_deluge(TORRENT_URL)
+    download_torrent_with_deluge(TORRENT_URL)
     deluge_config_mock.assert_called_once()
 
 
@@ -30,7 +30,7 @@ def test_gets_deluge_config_details(deluge_config_mock, *_):
 def test_creates_fabric_connection_with_correct_sudo_config(
     connection_mock, config_mock, *_
 ):
-    actual = download_torrent_with_deluge(TORRENT_URL)
+    download_torrent_with_deluge(TORRENT_URL)
 
     config_mock.assert_called_once_with(
         overrides={"sudo": {"password": "password_mock"}}
@@ -45,7 +45,7 @@ def test_creates_fabric_connection_with_correct_sudo_config(
 def test_creates_fabric_connection_with_correct_credentials(
     connection_mock, config_mock, *_
 ):
-    actual = download_torrent_with_deluge(TORRENT_URL)
+    download_torrent_with_deluge(TORRENT_URL)
 
     connection_mock.assert_called_once_with(
         host="host_mock", user="user_mock", config=config_mock.return_value
