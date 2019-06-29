@@ -6,6 +6,7 @@ synotools/settings.py
 synotools.egg-info/PKG-INFO
 synotools.egg-info/SOURCES.txt
 synotools.egg-info/dependency_links.txt
+synotools.egg-info/requires.txt
 synotools.egg-info/top_level.txt
 synotools/commands/__init__.py
 synotools/commands/download.py

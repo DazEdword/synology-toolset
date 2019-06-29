@@ -5,7 +5,7 @@ A Python API wrapper and toolset for interfacing with Synology NAS devices using
 * API: Through a Python wrapper simplifying DSM queries.
 * Command system: Through sh scripts hosted in the device, but called from any unix system capable of running `fabric`.
 
-API requires valid credentials as described in the section below. Additionally, SSH access is required to run commands, optionally with the installation of SSH key-based authentication allowing the user to authenticate and operate with their NAS without constantly using a password.
+API requires valid credentials as described in the section below.
 
 ## Setup
 
