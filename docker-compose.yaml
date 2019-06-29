@@ -8,8 +8,6 @@ services:
     container_name: build
     volumes:
       - .:/app:delegated
-    environment:
-      USER: ${USER:-}
   deploy:
     build:
       dockerfile: docker/Dockerfile
@@ -18,8 +16,6 @@ services:
     container_name: deploy
     volumes:
       - .:/app:delegated
-    environment:
-      USER: ${USER:-}
   install:
     build:
       dockerfile: docker/Dockerfile
@@ -28,6 +24,8 @@ services:
     container_name: install
     volumes:
       - .:/app:delegated
+    env_file:
+      - .env.private
   tests:
     build:
       dockerfile: docker/Dockerfile
@@ -39,7 +37,7 @@ services:
     environment:
       # General
       PYTHONUNBUFFERED: 'true'
-      PYTHONPATH: '/app/synology-toolset:/app/tests:'
+      PYTHONPATH: '/app/synotools:/app/tests:'
       ENVIRONMENT_NAME: 'test'
     env_file:
       - .env.sample

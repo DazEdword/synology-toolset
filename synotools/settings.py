@@ -1,8 +1,10 @@
 import os
 
-from constants import ENV_PATH
 from dotenv import load_dotenv
 from typing import Optional
+
+from synotools.constants import ENV_PATH
+
 
 load_dotenv(dotenv_path=ENV_PATH, verbose=True)
 

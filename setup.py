@@ -4,11 +4,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="synology-toolset",
+    name="synotools",
     version="0.3.2",
     author="Ed Garabito",
     author_email="eduardo@gottabegarabi.com",
-    description="A Python API wrapper and toolset for interfacing with Synology NAS devices.",
+    description="A Python API wrapper and toolset to interact with Synology NAS devices.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/DazEdword/synology-toolset",

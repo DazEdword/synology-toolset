@@ -1,8 +1,9 @@
 import logging
 
-from models.config.syno import SynoConfig
-from models.config.deluge import DelugeConfig
 from fabric import Connection, Config
+
+from synotools.models.config.syno import SynoConfig
+from synotools.models.config.deluge import DelugeConfig
 
 
 def download_torrent_with_deluge(torrent_url):

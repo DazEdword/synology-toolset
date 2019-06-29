@@ -24,7 +24,7 @@ Finding out your local IP will depend on your OS, router configuration and other
 
 ### SSH key
 
-`synology-toolset` uses `fabric` (built in top of `paramiko`) to handle SSH connections. Certain assumptions are made regarding credentials configurations and SSH keys. It is recommended to set up a SSH Key in your default SO's SSH location. This [guide](https://help.github.com/en/enterprise/2.16/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), although focused on GitHub, can assist. Make sure to store the private key in your default location (`~/.ssh` for Unix systems), and make a note of your public key contents or location, as it will be required for the next step.
+`synotools` uses `fabric` (built in top of `paramiko`) to handle SSH connections. Certain assumptions are made regarding credentials configurations and SSH keys. It is recommended to set up a SSH Key in your default SO's SSH location. This [guide](https://help.github.com/en/enterprise/2.16/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), although focused on GitHub, can assist. Make sure to store the private key in your default location (`~/.ssh` for Unix systems), and make a note of your public key contents or location, as it will be required for the next step.
 
 ### Enabling NAS SSH access
 

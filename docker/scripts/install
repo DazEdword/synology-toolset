@@ -4,5 +4,6 @@ set -eo pipefail
 set -u
 
 echo "Installing scripts to NAS..."
-python3 synology-toolset/commands/install.py
+echo "$PYTHONPATH"
+python3 synotools/commands/install.py
 echo "Done!"

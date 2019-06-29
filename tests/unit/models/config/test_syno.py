@@ -1,4 +1,4 @@
-from models.config.syno import SynoConfig
+from synotools.models.config.syno import SynoConfig
 
 
 def test_syno_config_initialisation_has_correct_prefix():

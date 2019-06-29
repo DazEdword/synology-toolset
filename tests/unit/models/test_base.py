@@ -1,8 +1,9 @@
+import pytest
+
 from typing import Any
 from unittest.mock import patch, Mock
 
-import pytest
-from models.base import Model
+from synotools.models.base import Model
 
 
 class Alice(Model):
@@ -85,7 +86,7 @@ def test_validate_uses_per_field_validator():
     # Act
     model = Bob(field_1="original", field_2="original")
 
-    with patch("models.base.getattr") as getattr_mock:
+    with patch("synotools.models.base.getattr") as getattr_mock:
         model.validate()
         assert getattr_mock.call_count == 3
         assert getattr_mock.call_args_list[0][0][1] == "validate_field_1"
@@ -97,7 +98,7 @@ def test_validate_ignores_validation_when_field_has_no_validator():
     # Arrange
     model = Bob(field_1="original", field_2="original")
 
-    with patch("models.base.getattr") as getattr_mock:
+    with patch("synotools.models.base.getattr") as getattr_mock:
         first_validator = Mock()
         error_validator = AttributeError()
         third_validator = Mock()

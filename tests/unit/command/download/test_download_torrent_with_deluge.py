@@ -1,32 +1,32 @@
 from unittest.mock import patch
 
-from commands.download import download_torrent_with_deluge
+from synotools.commands.download import download_torrent_with_deluge
 from tests.unit.fixtures import create_syno_config_mock, create_deluge_config_mock
 
 TORRENT_URL = "https://www.archlinux.org/releng/releases/2019.06.01/torrent/"
 
 
-@patch("commands.download.Connection")
-@patch("commands.download.DelugeConfig", return_value=create_deluge_config_mock())
-@patch("commands.download.SynoConfig", return_value=create_syno_config_mock())
+@patch("synotools.commands.download.Connection")
+@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
 def test_gets_synology_config_details(syno_config_mock, deluge_config_mock, *_):
     download_torrent_with_deluge(TORRENT_URL)
     syno_config_mock.assert_called_once()
 
 
-@patch("commands.download.Connection")
-@patch("commands.download.SynoConfig", return_value=create_syno_config_mock())
-@patch("commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch("synotools.commands.download.Connection")
+@patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
+@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
 def test_gets_deluge_config_details(deluge_config_mock, *_):
     download_torrent_with_deluge(TORRENT_URL)
     deluge_config_mock.assert_called_once()
 
 
-@patch("commands.download.logging")
-@patch("commands.download.DelugeConfig", return_value=create_deluge_config_mock())
-@patch("commands.download.SynoConfig", return_value=create_syno_config_mock())
-@patch("commands.download.Config")
-@patch("commands.download.Connection")
+@patch("synotools.commands.download.logging")
+@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
+@patch("synotools.commands.download.Config")
+@patch("synotools.commands.download.Connection")
 def test_creates_fabric_connection_with_correct_sudo_config(
     connection_mock, config_mock, *_
 ):
@@ -37,11 +37,11 @@ def test_creates_fabric_connection_with_correct_sudo_config(
     )
 
 
-@patch("commands.download.logging")
-@patch("commands.download.DelugeConfig", return_value=create_deluge_config_mock())
-@patch("commands.download.SynoConfig", return_value=create_syno_config_mock())
-@patch("commands.download.Config")
-@patch("commands.download.Connection")
+@patch("synotools.commands.download.logging")
+@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
+@patch("synotools.commands.download.Config")
+@patch("synotools.commands.download.Connection")
 def test_creates_fabric_connection_with_correct_credentials(
     connection_mock, config_mock, *_
 ):
@@ -54,11 +54,11 @@ def test_creates_fabric_connection_with_correct_credentials(
     connection_mock.return_value.sudo.assert_called_once_with(expected_command)
 
 
-@patch("commands.download.DelugeConfig", return_value=create_deluge_config_mock())
-@patch("commands.download.SynoConfig", return_value=create_syno_config_mock())
-@patch("commands.download.Config")
-@patch("commands.download.logging")
-@patch("commands.download.Connection")
+@patch("synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock())
+@patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
+@patch("synotools.commands.download.Config")
+@patch("synotools.commands.download.logging")
+@patch("synotools.commands.download.Connection")
 def test_logs_message_when_exception_occurs(connection_mock, logger_mock, *_):
     connection_mock.return_value.sudo.side_effect = [
         Exception("Uh oh, something happened!")

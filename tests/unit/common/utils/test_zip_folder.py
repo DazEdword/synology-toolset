@@ -1,14 +1,14 @@
 from freezegun import freeze_time
 from unittest.mock import patch
 
-from common.utils import zip_folder
+from synotools.common.utils import zip_folder
 
 
 @freeze_time("2019-06-28")
-@patch("common.utils.zipfile")
-@patch("common.utils.logging")
+@patch("synotools.common.utils.zipfile")
+@patch("synotools.common.utils.logging")
 @patch(
-    "common.utils.os.walk",
+    "synotools.common.utils.os.walk",
     return_value=[("project-root", [], ["file-one.txt", "file_two.txt"])],
 )
 def test_creates_and_returns_zipname_with_passed_base_and_timestamp(os_walk_mock, *_):
@@ -18,10 +18,10 @@ def test_creates_and_returns_zipname_with_passed_base_and_timestamp(os_walk_mock
 
 
 @freeze_time("2019-06-28")
-@patch("common.utils.zipfile")
-@patch("common.utils.logging")
+@patch("synotools.common.utils.zipfile")
+@patch("synotools.common.utils.logging")
 @patch(
-    "common.utils.os.walk",
+    "synotools.common.utils.os.walk",
     return_value=[("project-root", [], ["file-one.txt", "file_two.txt"])],
 )
 def test_gets_filepaths_from_os_walk(os_walk_mock, logger_mock, *_):
@@ -34,10 +34,10 @@ def test_gets_filepaths_from_os_walk(os_walk_mock, logger_mock, *_):
 
 
 @freeze_time("2019-06-28")
-@patch("common.utils.logging")
-@patch("common.utils.zipfile")
+@patch("synotools.common.utils.logging")
+@patch("synotools.common.utils.zipfile")
 @patch(
-    "common.utils.os.walk",
+    "synotools.common.utils.os.walk",
     return_value=[("project-root", [], ["file-one.txt", "file-two.txt"])],
 )
 def test_zips_files_with_flattened_paths(os_walk_mock, zipfile_mock, *_):
@@ -67,10 +67,10 @@ def test_zips_files_with_flattened_paths(os_walk_mock, zipfile_mock, *_):
 
 
 @freeze_time("2019-06-28")
-@patch("common.utils.logging")
-@patch("common.utils.zipfile")
+@patch("synotools.common.utils.logging")
+@patch("synotools.common.utils.zipfile")
 @patch(
-    "common.utils.os.walk",
+    "synotools.common.utils.os.walk",
     return_value=[("project-root", [], ["file-one.txt", "file-two.txt"])],
 )
 def test_adds_path_to_filename_when_destination_dir_is_provided(

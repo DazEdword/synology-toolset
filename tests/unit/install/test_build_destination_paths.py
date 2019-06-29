@@ -1,6 +1,6 @@
 # from unittest.mock import patch
 
-from commands.install import build_destination_paths
+from synotools.commands.install import build_destination_paths
 
 
 def test_uses_provided_config_username_when_provided():

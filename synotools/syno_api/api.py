@@ -1,5 +1,5 @@
-from models.config.syno import SynoConfig
-from settings import get_environmental_variable
+from synotools.models.config.syno import SynoConfig
+from synotools.settings import get_environmental_variable
 
 from SynologyDSM import SynologyDSM
 

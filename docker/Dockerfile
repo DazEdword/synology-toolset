@@ -1,5 +1,7 @@
 FROM python:3
 
+ENV PYTHONPATH="$PYTHONPATH:/app"
+
 RUN pip install --upgrade pip
 
 COPY requirements.txt requirements.txt
@@ -11,7 +13,7 @@ RUN pip3 --no-cache-dir install -r requirements-dev.txt
 RUN ./install-bats.sh
 
 COPY docker/scripts docker/scripts
-COPY synology-toolset synology-toolset
+COPY synotools synotools
 
 VOLUME /app
 WORKDIR /app

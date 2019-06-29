@@ -1,6 +1,6 @@
 from typing import Any, Dict, List, Tuple
 
-from common.exceptions import ObjectDoesNotExist
+from synotools.common.exceptions import ObjectDoesNotExist
 
 
 class ModelBase(type):

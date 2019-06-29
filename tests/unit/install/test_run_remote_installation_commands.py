@@ -1,6 +1,6 @@
 from unittest.mock import patch, Mock
 
-from commands.install import run_remote_installation_commands
+from synotools.commands.install import run_remote_installation_commands
 from tests.unit.fixtures import create_syno_config_mock
 
 """
@@ -10,9 +10,9 @@ unless it's absolutely necessary, use mock.assert_called_with instead.
 """
 
 
-@patch("commands.install.os.path")
-@patch("commands.install.Connection")
-@patch("commands.install.Config")
+@patch("synotools.commands.install.os.path")
+@patch("synotools.commands.install.Connection")
+@patch("synotools.commands.install.Config")
 def test_opens_fabric_connection_with_correct_credentials(
     config_mock, connection_mock, *_
 ):
@@ -28,9 +28,9 @@ def test_opens_fabric_connection_with_correct_credentials(
     )
 
 
-@patch("commands.install.os.path")
-@patch("commands.install.Config")
-@patch("commands.install.Connection")
+@patch("synotools.commands.install.os.path")
+@patch("synotools.commands.install.Config")
+@patch("synotools.commands.install.Connection")
 def test_creates_scripts_dir_in_destination_if_it_does_not_exist(connection_mock, *_):
     syno_config = create_syno_config_mock()
     run_remote_installation_commands(syno_config, Mock(), "/example/path", "")
@@ -42,9 +42,9 @@ def test_creates_scripts_dir_in_destination_if_it_does_not_exist(connection_mock
     assert "mkdir -p /example/path" in mock_calls[2]
 
 
-@patch("commands.install.os.path")
-@patch("commands.install.Config")
-@patch("commands.install.Connection")
+@patch("synotools.commands.install.os.path")
+@patch("synotools.commands.install.Config")
+@patch("synotools.commands.install.Connection")
 def test_creates_transfers_zipped_files(connection_mock, *_):
     syno_config = create_syno_config_mock()
     run_remote_installation_commands(
@@ -62,9 +62,9 @@ def test_creates_transfers_zipped_files(connection_mock, *_):
     assert {"remote": "/example/path"} == mock_args[3][2]
 
 
-@patch("commands.install.Config")
-@patch("commands.install.os.path")
-@patch("commands.install.Connection")
+@patch("synotools.commands.install.Config")
+@patch("synotools.commands.install.os.path")
+@patch("synotools.commands.install.Connection")
 def test_creates_transfers_zipped_files(connection_mock, os_path_mock, *_):
     os_path_mock.join.return_value = "processed/path/files.zip"
     syno_config = create_syno_config_mock()
@@ -85,9 +85,9 @@ def test_creates_transfers_zipped_files(connection_mock, os_path_mock, *_):
     )
 
 
-@patch("commands.install.Config")
-@patch("commands.install.os.path")
-@patch("commands.install.Connection")
+@patch("synotools.commands.install.Config")
+@patch("synotools.commands.install.os.path")
+@patch("synotools.commands.install.Connection")
 def test_deleted_zipped_file_after_extraction(connection_mock, os_path_mock, *_):
     os_path_mock.join.return_value = "processed/path/files.zip"
     syno_config = create_syno_config_mock()

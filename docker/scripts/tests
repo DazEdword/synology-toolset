@@ -11,7 +11,7 @@ find . -name "*.pyc" -delete
 echo "--> Running tests with coverage..."
 
 coverage run \
-    --source=synology-toolset \
+    --source=synotools \
     -- $(which pytest) -v --durations=20 --tb=short --junit-xml=artifacts/test-report.xml $*
 
 echo "--> Coverage stats..."

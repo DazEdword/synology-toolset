@@ -2,10 +2,11 @@ import logging
 import os
 import sys
 
-from common.utils import zip_folder
-from models.config.syno import SynoConfig
 from fabric import Connection, Config
-from constants import SCRIPTS_PATH, ZIP_DESTINATION_PATH
+
+from synotools.common.utils import zip_folder
+from synotools.models.config.syno import SynoConfig
+from synotools.constants import SCRIPTS_PATH, ZIP_DESTINATION_PATH
 
 
 def install_scripts(destination_username=None):

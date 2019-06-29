@@ -9,7 +9,7 @@ function setup(){
     cd $ORIGINAL_PATH
     cd ../..
 
-    cd synology-toolset/scripts/
+    cd synotools/scripts/
     SRC_CODE_ROOT="$PWD"
     SCRIPT_UNDER_TEST="$SRC_CODE_ROOT/deluge-download.sh"
 }

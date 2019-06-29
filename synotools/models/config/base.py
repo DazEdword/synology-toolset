@@ -1,7 +1,7 @@
 import logging
 
-from models.base import Model
-from settings import get_environmental_variable
+from synotools.models.base import Model
+from synotools.settings import get_environmental_variable
 
 
 class ConfigBase(Model):

@@ -1,4 +1,4 @@
-from models.config.base import ConfigBase
+from synotools.models.config.base import ConfigBase
 
 
 class DelugeConfig(ConfigBase):
