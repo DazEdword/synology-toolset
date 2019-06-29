@@ -1,19 +1,21 @@
 Metadata-Version: 2.1
 Name: synotools
-Version: 0.3.7
+Version: 0.3.8
 Summary: A Python API wrapper and toolset to interact with Synology NAS devices.
 Home-page: https://github.com/DazEdword/synology-toolset
 Author: Ed Garabito
 Author-email: eduardo@gottabegarabi.com
 License: UNKNOWN
 Description: # Synology Toolset
-        
         A Python API wrapper and toolset for interfacing with Synology NAS devices using DiskStation Manager (DSM). The repository provides two different toolsets to communicate with your NAS:
         
         * API: Through a Python wrapper simplifying DSM queries.
         * Command system: Through sh scripts hosted in the device, but called from any unix system capable of running `fabric`.
         
         API requires valid credentials as described in the section below.
+        
+        # Getting Started
+        Install the package
         
         ## Setup
         

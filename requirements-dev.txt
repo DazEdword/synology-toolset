@@ -3,6 +3,7 @@
 black
 bumpversion
 coverage
+johnnydep
 flake8
 freezegun
 mypy
