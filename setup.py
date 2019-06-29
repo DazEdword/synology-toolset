@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="synology-toolset",
-    version="0.3.1",
+    version="0.3.2",
     author="Ed Garabito",
     author_email="eduardo@gottabegarabi.com",
     description="A Python API wrapper and toolset for interfacing with Synology NAS devices.",
