@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: synotools
-Version: 0.3.6
+Version: 0.3.7
 Summary: A Python API wrapper and toolset to interact with Synology NAS devices.
 Home-page: https://github.com/DazEdword/synology-toolset
 Author: Ed Garabito
