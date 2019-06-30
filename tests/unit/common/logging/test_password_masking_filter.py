@@ -7,6 +7,7 @@ from tests.unit.fixtures import create_syno_config_fake
 
 logger = get_logger(__name__)
 
+
 def test_filters_config_objects_to_redact_passwords():
     log_filter = PasswordMaskingFilter()
     config = create_syno_config_fake()
@@ -14,7 +15,7 @@ def test_filters_config_objects_to_redact_passwords():
 
     actual = log_filter.filter(record_mock)
 
-    assert actual is True   # Filter worked
+    assert actual is True  # Filter worked
     assert record_mock.args.password == "********"
 
 

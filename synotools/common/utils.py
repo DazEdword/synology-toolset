@@ -7,6 +7,7 @@ from datetime import datetime
 
 logger = get_logger(__name__)
 
+
 def zip_folder(filename, origin_dir, destination_dir=None):
     """Zips all files in a folder and returns path to zipped file"""
 

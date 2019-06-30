@@ -1,4 +1,3 @@
-
 # import inspect
 import logging
 
@@ -30,7 +29,7 @@ class PasswordMaskingFilter(logging.Filter):
             # This is done in two steps to avoid setting password
             # values to config objects that do not have one
             password_value = config_copy.password
-            config_copy.password = '********'
+            config_copy.password = "********"
         except (AttributeError, NameError):
             pass
 
@@ -38,13 +37,9 @@ class PasswordMaskingFilter(logging.Filter):
 
 
 def get_logger(module_name):
-    logging.basicConfig(
-        level=log_level,
-        filemode="w+",
-    )
+    logging.basicConfig(level=log_level, filemode="w+")
 
     logger = logging.getLogger(module_name)
     logger.addFilter(PasswordMaskingFilter())
 
     return logger
-

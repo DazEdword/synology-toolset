@@ -20,10 +20,7 @@ def create_syno_config_fake():
     """Instance of the class, but with fake values.
     It is .env independent"""
     config_fake = SynoConfig(
-        username="user_mock",
-        password="password_mock",
-        port=9999,
-        ip="host_mock",
+        username="user_mock", password="password_mock", port=9999, ip="host_mock"
     )
 
     return config_fake
