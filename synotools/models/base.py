@@ -79,3 +79,9 @@ class Model(metaclass=ModelBase):
         other_data = other.dict
 
         return self_data == other_data
+
+    def __str__(self):
+        return str(self.dict)
+
+    def __repl__(self):
+        return str(self.dict)
