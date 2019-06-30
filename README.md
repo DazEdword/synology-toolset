@@ -1,8 +1,8 @@
-# Synology Toolset
-A Python API wrapper and toolset for interfacing with Synology NAS devices using DiskStation Manager (DSM). The repository provides two different toolsets to communicate with your NAS:
+# Synotools
+A Python API wrapper and toolset for interacting with Synology NAS devices using DiskStation Manager (DSM). The repository provides two different toolsets to communicate with your NAS:
 
 * API: Through a Python wrapper simplifying DSM queries.
-* Command system: Through sh scripts hosted in the device, but called from any unix system capable of running `fabric`.
+* Command system: Through sh scripts hosted in the device, but called from any unix system capable of running `fabric` and python.
 
 API requires valid credentials as described in the section below.
 
@@ -20,7 +20,7 @@ cd <path/to/your/installation/root>
 cp .env.sample .env.private
 ```
 
-Once you proceed with the setup and populate your `env.private` file, you will be able to run commands:
+Once you proceed with the setup and populate your `env.private` file with your own credentials, you will be able to run commands:
 
 ```bash
 python <installation-folder>/commands/<command-name> <args>

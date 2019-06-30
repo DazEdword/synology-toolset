@@ -1,3 +1,0 @@
-fabric
-python-dotenv
-python-synology
