@@ -26,7 +26,7 @@ def test_gets_deluge_config_details(deluge_config_mock, *_):
     deluge_config_mock.assert_called_once()
 
 
-@patch("synotools.commands.download.logging")
+@patch("synotools.commands.download.get_logger")
 @patch(
     "synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock()
 )
@@ -43,7 +43,7 @@ def test_creates_fabric_connection_with_correct_sudo_config(
     )
 
 
-@patch("synotools.commands.download.logging")
+@patch("synotools.commands.download.logger")
 @patch(
     "synotools.commands.download.DelugeConfig", return_value=create_deluge_config_mock()
 )
@@ -67,7 +67,7 @@ def test_creates_fabric_connection_with_correct_credentials(
 )
 @patch("synotools.commands.download.SynoConfig", return_value=create_syno_config_mock())
 @patch("synotools.commands.download.Config")
-@patch("synotools.commands.download.logging")
+@patch("synotools.commands.download.logger")
 @patch("synotools.commands.download.Connection")
 def test_logs_message_when_exception_occurs(connection_mock, logger_mock, *_):
     connection_mock.return_value.sudo.side_effect = [

@@ -1,9 +1,11 @@
 import os
 import zipfile
-import logging
+
+from synotools.common.logging import get_logger
 
 from datetime import datetime
 
+logger = get_logger(__name__)
 
 def zip_folder(filename, origin_dir, destination_dir=None):
     """Zips all files in a folder and returns path to zipped file"""
@@ -23,7 +25,7 @@ def zip_folder(filename, origin_dir, destination_dir=None):
             file_path = os.path.join(root, filename)
             file_paths.append(file_path)
 
-    logging.info(f"Preparing to zip files: {file_paths}")
+    logger.info(f"Preparing to zip files: {file_paths}")
 
     # Writing files to a zipfile
     zip_file = zipfile.ZipFile(zipname, "w")

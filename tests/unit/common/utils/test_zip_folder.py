@@ -6,7 +6,7 @@ from synotools.common.utils import zip_folder
 
 @freeze_time("2019-06-28")
 @patch("synotools.common.utils.zipfile")
-@patch("synotools.common.utils.logging")
+@patch("synotools.common.utils.logger")
 @patch(
     "synotools.common.utils.os.walk",
     return_value=[("project-root", [], ["file-one.txt", "file_two.txt"])],
@@ -19,7 +19,7 @@ def test_creates_and_returns_zipname_with_passed_base_and_timestamp(os_walk_mock
 
 @freeze_time("2019-06-28")
 @patch("synotools.common.utils.zipfile")
-@patch("synotools.common.utils.logging")
+@patch("synotools.common.utils.logger")
 @patch(
     "synotools.common.utils.os.walk",
     return_value=[("project-root", [], ["file-one.txt", "file_two.txt"])],
@@ -34,7 +34,7 @@ def test_gets_filepaths_from_os_walk(os_walk_mock, logger_mock, *_):
 
 
 @freeze_time("2019-06-28")
-@patch("synotools.common.utils.logging")
+@patch("synotools.common.utils.logger")
 @patch("synotools.common.utils.zipfile")
 @patch(
     "synotools.common.utils.os.walk",
@@ -67,7 +67,7 @@ def test_zips_files_with_flattened_paths(os_walk_mock, zipfile_mock, *_):
 
 
 @freeze_time("2019-06-28")
-@patch("synotools.common.utils.logging")
+@patch("synotools.common.utils.logger")
 @patch("synotools.common.utils.zipfile")
 @patch(
     "synotools.common.utils.os.walk",
