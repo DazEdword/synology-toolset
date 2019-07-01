@@ -10,6 +10,7 @@ from synotools.constants import SCRIPTS_PATH, ZIP_DESTINATION_PATH
 
 logger = get_logger(__name__)
 
+
 def install_scripts(destination_username=None):
     """
     Zips scripts from project and installs them in the NAS device through

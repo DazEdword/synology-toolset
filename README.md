@@ -13,14 +13,23 @@ Install the package with pip:
 python -m pip install synotools
 ```
 
-Copy provided `env.sample` file as `env.private`.
+Create your credentials file in `~/.synology.credentials`:
 
-```bash
-cd <path/to/your/installation/root>
-cp .env.sample .env.private
+```
+# Device access credentials
+SYNOLOGY_IP=your-ip
+SYNOLOGY_PORT=your-port
+SYNOLOGY_USERNAME=your-username
+SYNOLOGY_PASSWORD=your-password
+
+# Deluge service credentials
+DELUGE_IP=deluge-ip
+DELUGE_PORT=deluge-port
+DELUGE_USERNAME=deluge-username
+DELUGE_PASSWORD=deluge-password
 ```
 
-Once you proceed with the setup and populate your `env.private` file with your own credentials, you will be able to run commands:
+A list of all fields can be found on `env.sample`, and this file can be used as a template for your credentials. Once populated and after completing [setup](#setup) you will be able to run commands:
 
 ```bash
 python <installation-folder>/commands/<command-name> <args>
@@ -31,7 +40,7 @@ Read the [Using the tools](#using-the-tools) section for more information about 
 ## Setup
 
 ### Credentials
-Valid credentials are expected to be stored locally, allowing the tools to connect to the device via local network. Fill in the following credentials in the `.env.private` file:
+Valid credentials are expected to be stored locally, allowing the tools to connect to the device via local network. Fill in the following credentials in your `credentials` file:
 
 1. IP: E.g. `192.168.1.35`
 2. Port: `5000` for http, or `5001` for https
@@ -56,7 +65,7 @@ The download command uses Deluge remotely, so it has to be installed and configu
 1- Download and install [Synocomunity](https://synocommunity.com/).
 2- Deluge's auth config has to include a user, password and permission level that will be used to connect remotely.
 3- Deluge server's host ip and port. Defaulted to `127.0.0.1` and `58846` respectively.
-4- Once those variables are set, copy them to their relevant fields in .env.private.
+4- Once those variables are set, copy them to their relevant fields in your `credentials` file.
 
 In order to set up Deluge, you can either:
 
@@ -78,7 +87,7 @@ This step is necessary before attempting to run any other script, as they rely i
 # e.g. ./install.docker paulo_rsa
 ```
 
-Zips all scripts in `synotools/scripts`, zips them and deploys them to your NAS `~/.scripts` folder. User is taken from the `.env.private` file. SSH is required to connect to the NAS without additional authentication.
+Gathers all scripts in `synotools/scripts`, zips them and deploys them to your NAS `~/.scripts` folder. User is taken from the `credentials` file. SSH is required to connect to the NAS without additional authentication.
 
 _Note: Adding ssh key to Docker `install` image means that this image should never be shared publicly (i.e. pushed to Docker repo) for security reasons._
 
@@ -115,7 +124,7 @@ There are two types of dependencies:
 git clone git@github.com:DazEdword/synology-toolset.git
 ```
 
-2- Configure your `.env.private` file and ssh keys as explained in the [Getting Started section](#getting-started).
+2- Configure your `credentials` file and ssh keys as explained in the [Getting Started section](#getting-started).
 
 3- Ensure all scripts are executable.
 

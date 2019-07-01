@@ -26,7 +26,7 @@ services:
       - .:/app:delegated
       - ~/.ssh:/root/.ssh
     env_file:
-      - .env.private
+      - $HOME/.synotools/credentials
   tests:
     build:
       dockerfile: docker/Dockerfile
