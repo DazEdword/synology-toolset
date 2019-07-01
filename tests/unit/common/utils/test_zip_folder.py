@@ -28,8 +28,8 @@ def test_gets_filepaths_from_os_walk(os_walk_mock, logger_mock, *_):
     zip_folder("my-test-file", "my/test/path")
 
     assert (
-        logger_mock.info.call_args_list[0][0][0]
-        == "Preparing to zip files: ['project-root/file-one.txt', 'project-root/file_two.txt']"
+        logger_mock.info.call_args_list[1][0][0]
+        == "Zipping files: ['project-root/file-one.txt', 'project-root/file_two.txt']"
     )
 
 

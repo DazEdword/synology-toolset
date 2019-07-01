@@ -1,13 +1,14 @@
-import logging
 import os
 import sys
 
 from fabric import Connection, Config
 
+from synotools.common.logging import get_logger
 from synotools.common.utils import zip_folder
 from synotools.models.config.syno import SynoConfig
 from synotools.constants import SCRIPTS_PATH, ZIP_DESTINATION_PATH
 
+logger = get_logger(__name__)
 
 def install_scripts(destination_username=None):
     """
@@ -38,7 +39,7 @@ def install_scripts(destination_username=None):
         )
 
     except Exception as e:
-        logging.error(f"An error occurred: {e}")
+        logger.error(f"An error occurred: {e}")
 
 
 def build_destination_paths(username):
@@ -66,7 +67,7 @@ def run_remote_installation_commands(
 
         # Send zipped files
         result = connection.put(zipped_scripts, remote=remote_sftp_destination_path)
-        logging.debug(result)
+        logger.debug(result)
 
         remote_filename = os.path.join(
             remote_absolute_destination_path, os.path.basename(zipped_scripts)

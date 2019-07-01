@@ -10,7 +10,7 @@ logger = get_logger(__name__)
 
 def zip_folder(filename, origin_dir, destination_dir=None):
     """Zips all files in a folder and returns path to zipped file"""
-
+    logger.info(f"Preparing to zip all files in {origin_dir}...")
     file_paths = []
 
     timestamp = datetime.utcnow().isoformat()
@@ -26,7 +26,7 @@ def zip_folder(filename, origin_dir, destination_dir=None):
             file_path = os.path.join(root, filename)
             file_paths.append(file_path)
 
-    logger.info(f"Preparing to zip files: {file_paths}")
+    logger.info(f"Zipping files: {file_paths}")
 
     # Writing files to a zipfile
     zip_file = zipfile.ZipFile(zipname, "w")
@@ -35,4 +35,5 @@ def zip_folder(filename, origin_dir, destination_dir=None):
             flattened_file_path = os.path.basename(file)
             zip_file.write(file, flattened_file_path)
 
+    logger.info(f"Files zipped in {zipname}")
     return zipname

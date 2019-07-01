@@ -81,7 +81,7 @@ def test_runs_remote_installation_commands(run_remote_installation_commands_mock
     "synotools.commands.install.run_remote_installation_commands",
     side_effect=Exception("Something went wrong remotely!"),
 )
-@patch("synotools.commands.install.logging")
+@patch("synotools.commands.install.logger")
 def test_logs_error_on_command_exception(logging_mock, *_):
     install_scripts("test_user")
 
