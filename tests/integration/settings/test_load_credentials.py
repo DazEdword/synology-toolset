@@ -1,5 +1,9 @@
+import pytest
+
 from synotools.settings import get_environmental_variable
 
+# Ensure this test module is seen as an integration test
+pytestmark = pytest.mark.integration
 
 # TODO Fix this with integration tests
 # Needs to load from .env.tests instead

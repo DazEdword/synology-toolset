@@ -12,13 +12,13 @@ echo "--> Running tests with coverage..."
 
 coverage run \
     --source=synotools \
-    -- $(which pytest) -v --durations=20 --tb=short --junit-xml=artifacts/test-report.xml $*
+    -- $(which pytest) -v -m "not integration" --durations=20 --tb=short --junit-xml=artifacts/test-report.xml $*
 
 echo "--> Coverage stats..."
 coverage html
 
 echo "--> Coverage report..."
-coverage report -m
+coverage report -m "not integration"
 
 COVERAGE_REPORT_EXIT_CODE=$?
 

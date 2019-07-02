@@ -4,3 +4,4 @@
 !synotools/
 !install-bats.sh
 !install-bats-core.sh
+!.env.tests

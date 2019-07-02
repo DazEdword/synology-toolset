@@ -1,4 +1,1 @@
-collect_ignore = [
-    "docker/", 
-    "tests/integration",
-]
+collect_ignore = ["docker/"]
