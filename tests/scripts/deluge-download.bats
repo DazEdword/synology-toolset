@@ -40,13 +40,3 @@ function synopkg(){
   #[ "$status" -eq 0 ]
   [ "$output" = "Preparing to download: magnet:?xt=urn:btih:abc123&dn=archlinux-2019.06.01-x86_64.iso&tr=udp://tracker.archlinux.org:6969&tr=http://localhost.loc:6969/announce" ]
 }
-
-# @test "addition using bc" {
-#   result="$(echo 2+2 | bc)"
-#   [ "$result" -eq 4 ]
-# }
-
-# @test "addition using dc" {
-#   result="$(echo 2 2+p | dc)"
-#   [ "$result" -eq 4 ]
-# }
