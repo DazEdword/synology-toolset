@@ -6,11 +6,7 @@ from synotools.syno_api.api import create_api_client, print_sanity_test_report
 pytestmark = pytest.mark.integration
 
 
-def test_whatevs():
+def test_print_sanity_test_report():
     client = create_api_client()
 
     print_sanity_test_report(client)
-
-
-if __name__ == "__main__":
-    test_whatevs()

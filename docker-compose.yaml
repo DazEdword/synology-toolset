@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 services:
   build:
     build:
@@ -37,8 +37,8 @@ services:
       - .:/app:delegated
     environment:
       # General
-      PYTHONUNBUFFERED: 'true'
-      PYTHONPATH: '/app/synotools:/app/tests:'
-      ENVIRONMENT_NAME: 'test'
+      PYTHONUNBUFFERED: "true"
+      PYTHONPATH: "/app/synotools:/app/tests:"
+      ENVIRONMENT_NAME: "test"
     env_file:
-      - .env.sample
+      - .env.tests

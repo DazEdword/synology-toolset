@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -o pipefail
+set -u
+
+mkdir artifacts || true
+
+echo "--> Cleaning out cached pyc files..."
+find . -name "*.pyc" -delete
+
+echo "--> Running integration tests..."
+
+$(which pytest) -v -m "integration" --durations=20 --tb=short $*

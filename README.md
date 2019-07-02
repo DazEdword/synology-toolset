@@ -114,7 +114,7 @@ This software has been created and is maintained in Linux Mint, but developers s
 ### Dependencies
 There are two types of dependencies:
 
-* Python Packages: Handled automatically thanks to `pip3`. They are included in requirements file, `requirements.txt` for the tools themselves, and `requirements-dev` for all peripheric development tools. 
+* Python Packages: Handled automatically thanks to `pip3`. They are included in requirements file, `requirements.txt` for the tools themselves, and `requirements-dev.txt` for all peripheric development tools. 
 * Other Dependencies: In order to prevent the developers' system from cluttering, all external dependencies that are not installable with package managers are supposed to sit in the `dependencies` folder. Scripts are provided to install these automatically.
 
 ### Development environment setup
@@ -136,11 +136,21 @@ find docker/scripts/ -type f -exec chmod +x {} \;
 
 ### Running tests
 
-Docker should handle everything for you. Alternatively, a virtual environment could be created and all dependencies installed via scripts.
+Several Docker scripts have been set up to unambiguously run a subset of tests, while taking care of all required dependencies. Using these scripts Docker should handle everything for you:
 
-#### Python unit tests
+```bash
+# Unit tests
+./tests.docker
+```
 
-Simply execute `tests.docker` script in the root, and it will install all dependencies and run the test suite.
+```bash
+# Integration tests
+./integration-tests.docker
+```
+
+Alternatively, a virtual environment could be created and all dependencies installed via scripts, allowing for richer test runs as covered in [pytest's documentation](https://docs.pytest.org/en/latest/).
+
+_Note: Many integration tests requires your NAS to be on and available in your local network in order to pass, as tests will be directly interacting with it._
 
 
 
