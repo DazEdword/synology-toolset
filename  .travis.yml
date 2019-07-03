@@ -1,4 +1,7 @@
 language: python
+python:
+  - "3.6"
+  - "3.7"
 addons:
   apt:
     packages:
@@ -8,4 +11,4 @@ services:
 before_install:
   - docker-compose build tests
 script:
-  - docker-compose run --rm tests docker/scripts/tests $*
+  - docker-compose run --rm tests docker/scripts/tests
