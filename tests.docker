@@ -4,4 +4,4 @@ set -eox pipefail
 set -u
 
 docker-compose build tests
-docker-compose run --rm tests docker/scripts/tests $*
+docker-compose run --rm tests docker/scripts/tests

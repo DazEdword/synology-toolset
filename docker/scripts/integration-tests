@@ -10,4 +10,4 @@ find . -name "*.pyc" -delete
 
 echo "--> Running integration tests..."
 
-$(which pytest) -v -m "integration" --durations=20 --tb=short $*
+$(which pytest) -v --durations=20 --tb=short tests/integration
