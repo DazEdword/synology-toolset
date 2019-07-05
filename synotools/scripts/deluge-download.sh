@@ -2,6 +2,10 @@
 # This script is intended to be run with root privileges
 # Torrent variable can be either url to torrent file or magnet
 
+function run_deluge_console_command(){
+	/var/packages/deluge/target/env/bin/deluge-console $1
+}
+
 # Making sure that synopkg command will be available in path
 PATH=$PATH:/usr/syno/bin/
 
@@ -46,6 +50,6 @@ fi
 
 # Connect to Deluge Console
 commands="connect "$connection" "$user" "$pass"; add "$torrent""
-/var/packages/deluge/target/env/bin/deluge-console "$commands"
+run_deluge_console_command "$commands"
 
 # TODO Passing passwords as parameters is bad practice, research alternatives

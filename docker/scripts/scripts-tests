@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -o pipefail
+set -u
+
+echo "--> Running shell scripts test..."
+
+./dependencies/bats/bin/bats tests/scripts/
