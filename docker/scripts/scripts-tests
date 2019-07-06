@@ -7,4 +7,8 @@ echo "--> Running shell scripts test..."
 
 pwd
 echo "BAAATS!"
+
+ls -la
+
+ls -la dependencies
 dependencies/bats/bin/bats tests/scripts/
