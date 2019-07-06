@@ -43,17 +43,4 @@ services:
     env_file:
       - .env.tests
 
-  integration-tests:
-    build:
-      dockerfile: docker/Dockerfile
-      context: .
-    command: ./docker/scripts/integration-tests
-    container_name: integration-tests
-    volumes:
-      - .:/app:delegated
-    environment:
-      # General
-      PYTHONUNBUFFERED: "true"
-      PYTHONPATH: "/app/synotools:/app/tests:"
-      ENVIRONMENT_NAME: "test"
 

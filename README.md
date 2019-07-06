@@ -144,13 +144,18 @@ Several Docker scripts have been set up to unambiguously run a subset of tests, 
 ```
 
 ```bash
-# Integration tests
+# Scripts tests (bash unit tests)
+./tests-scripts.docker
+```
+
+```bash
+# Integration tests (bash unit tests)
 ./integration-tests.docker
 ```
 
 Alternatively, a virtual environment could be created and all dependencies installed via scripts, allowing for richer test runs as covered in [pytest's documentation](https://docs.pytest.org/en/latest/).
 
-_Note: Many integration tests requires your NAS to be on and available in your local network in order to pass, as tests will be directly interacting with it._
+_Note: Integration tests may require your NAS to be on and available in your local network in order to pass, as tests could be directly interacting with it._
 
 
 

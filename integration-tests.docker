@@ -3,6 +3,6 @@
 set -eox pipefail
 set -u
 
-docker-compose build integration-tests
-docker-compose run --rm integration-tests docker/scripts/integration-tests
+docker-compose build tests
+docker-compose run --rm tests docker/scripts/integration-tests
 
