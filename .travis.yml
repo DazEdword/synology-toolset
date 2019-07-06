@@ -9,6 +9,7 @@ addons:
 services:
   - docker
 before_script:
+  - pwd
   - ls -la
   - docker-compose build tests
 script:
