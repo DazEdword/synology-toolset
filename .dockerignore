@@ -1,6 +1,7 @@
 *
 !requirements*.txt
 !docker/
+!dependencies/
 !synotools/
 !install-bats.sh
 !install-bats-core.sh

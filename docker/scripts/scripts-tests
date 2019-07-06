@@ -5,10 +5,5 @@ set -u
 
 echo "--> Running shell scripts test..."
 
-pwd
-echo "BAAATS!"
-
-ls -la
-
-ls -la dependencies
-dependencies/bats/bin/bats tests/scripts/
+# Try to use system installed bats, if it does not work try the dependencies one
+bats tests/scripts/ || dependencies/bats/bin/bats tests/scripts/
