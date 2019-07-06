@@ -15,4 +15,4 @@ before_script:
   - docker-compose build tests
 script:
   - docker-compose run --rm tests docker/scripts/tests
-  - docker-compose run --rm tests docker/scripts/scripts-tests
+  #- docker-compose run --rm tests docker/scripts/scripts-tests
