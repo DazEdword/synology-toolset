@@ -9,9 +9,11 @@ addons:
 services:
   - docker
 before_script:
-  - pwd
-  - ls -la
+  - mkdir -p /home/travis/.synotools/
+  - cp /home/travis/build/DazEdword/synology-toolset/.env.tests /home/travis/.synotools/credentials
   - docker-compose build tests
 script:
   - docker-compose run --rm tests docker/scripts/tests
   - docker-compose run --rm tests docker/scripts/scripts-tests
+
+#/home/travis/build/DazEdword/synology-toolset
