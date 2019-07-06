@@ -8,7 +8,9 @@ addons:
       - docker-ce
 services:
   - docker
-before_install:
+before_script:
+  - ls -la
   - docker-compose build tests
 script:
   - docker-compose run --rm tests docker/scripts/tests
+  - docker-compose run --rm tests docker/scripts/scripts-tests

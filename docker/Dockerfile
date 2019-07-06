@@ -14,7 +14,6 @@ ARG SSH_KEY_NAME
 RUN echo "IdentityFile ~/.ssh/$SSH_KEY_NAME" >> /etc/ssh/ssh_config
 
 COPY .env.tests /root/.synotools/credentials
-COPY .env.tests /home/travis/.synotools/credentials
 
 RUN pip3 --no-cache-dir install -r requirements-dev.txt
 RUN ./install-bats.sh
