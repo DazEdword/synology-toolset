@@ -16,3 +16,5 @@ before_script:
 script:
   - docker-compose run --rm tests docker/scripts/tests
   #- docker-compose run --rm tests docker/scripts/scripts-tests
+after_success:
+  - coveralls
