@@ -152,6 +152,8 @@ Alternatively, a virtual environment could be created and all dependencies insta
 
 _Note: Many integration tests requires your NAS to be on and available in your local network in order to pass, as tests will be directly interacting with it._
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.org/dazedword/synology-toolset.svg?branch=master)](https://travis-ci.org/dazedword/synology-toolset.svg)
 
 
 
