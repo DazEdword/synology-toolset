@@ -16,10 +16,11 @@ RUN echo "IdentityFile ~/.ssh/$SSH_KEY_NAME" >> /etc/ssh/ssh_config
 COPY .env.tests /root/.synotools/credentials
 
 RUN pip3 --no-cache-dir install -r requirements-dev.txt
-RUN ./install-bats.sh
+RUN git clone https://github.com/bats-core/bats-core.git && cd bats-core && ./install.sh /usr/local
 
 COPY docker/scripts docker/scripts
 COPY synotools synotools
 
 VOLUME /app
 WORKDIR /app
+

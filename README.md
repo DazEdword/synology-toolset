@@ -1,3 +1,6 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.org/DazEdword/synology-toolset.svg?branch=master)](https://travis-ci.org/DazEdword/synology-toolset.svg)
+
 # Synotools
 A Python API wrapper and toolset for interacting with Synology NAS devices using DiskStation Manager (DSM). The repository provides two different toolsets to communicate with your NAS:
 

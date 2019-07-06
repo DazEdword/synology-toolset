@@ -5,4 +5,5 @@ set -u
 
 echo "--> Running shell scripts test..."
 
-./dependencies/bats/bin/bats tests/scripts/
+# Try to use system installed bats, if it does not work try the dependencies one
+bats tests/scripts/ || dependencies/bats/bin/bats tests/scripts/

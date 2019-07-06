@@ -1,0 +1,18 @@
+
+language: python
+python:
+  - "3.6"
+addons:
+  apt:
+    packages:
+      - docker-ce
+services:
+  - docker
+before_script:
+  - chmod -R 755 /home/travis/build/DazEdword/synology-toolset/docker/scripts/
+  - mkdir -p /home/travis/.synotools/
+  - cp /home/travis/build/DazEdword/synology-toolset/.env.tests /home/travis/.synotools/credentials
+  - docker-compose build tests
+script:
+  - docker-compose run --rm tests docker/scripts/tests
+  #- docker-compose run --rm tests docker/scripts/scripts-tests
