@@ -9,6 +9,7 @@ addons:
 services:
   - docker
 before_script:
+  - chmod -R 755 /home/travis/build/DazEdword/synology-toolset/docker/scripts/
   - mkdir -p /home/travis/.synotools/
   - cp /home/travis/build/DazEdword/synology-toolset/.env.tests /home/travis/.synotools/credentials
   - docker-compose build tests
