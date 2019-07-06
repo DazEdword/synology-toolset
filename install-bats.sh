@@ -10,6 +10,7 @@ set -u
 FORCE=${1:--keep}
 
 function get_bats_repo_and_branch() {
+    echo "Current directory: $PWD"
     FORCE=$1
     PREV_PWD=$PWD
     CHECKOUT_DIR="bats"
