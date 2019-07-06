@@ -5,4 +5,6 @@ set -u
 
 echo "--> Running shell scripts test..."
 
-./dependencies/bats/bin/bats tests/scripts/
+pwd
+echo "BAAATS!"
+dependencies/bats/bin/bats tests/scripts/
