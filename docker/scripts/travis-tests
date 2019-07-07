@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -o pipefail
+set -u
+
+mkdir artifacts || true
+
+# Run tests normally
+/bin/bash ./docker/scripts/tests
+
+# Run coveralls in addition to it
+COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN coveralls

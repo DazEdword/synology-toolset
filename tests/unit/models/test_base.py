@@ -109,3 +109,19 @@ def test_validate_ignores_validation_when_field_has_no_validator():
         assert getattr_mock.call_count == 3
         assert first_validator.called is True
         assert third_validator.called is True
+
+
+def test_dunder_str_returns_stringified_dict():
+    # Arrange
+    model = Bob(field_1="original", field_2="original")
+    expected = "{'field_1': 'modified - original', 'field_2': 'original', 'field_3': None}"
+    actual = str(model)
+    assert actual == expected
+
+
+def test_dunder_repl_returns_stringified_dict():
+    # Arrange
+    model = Bob(field_1="original", field_2="original")
+    expected = "{'field_1': 'modified - original', 'field_2': 'original', 'field_3': None}"
+    actual = model.__repl__()
+    assert actual == expected
