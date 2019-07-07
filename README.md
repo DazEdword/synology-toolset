@@ -153,7 +153,7 @@ Several Docker scripts have been set up to unambiguously run a subset of tests, 
 ```
 
 ```bash
-# Integration tests (bash unit tests)
+# Integration tests
 ./integration-tests.docker
 ```
 
