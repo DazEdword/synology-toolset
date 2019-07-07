@@ -3,12 +3,11 @@
 black
 bumpversion
 coverage
-johnnydep
+coveralls
 flake8
 freezegun
 mypy
 pytest
-python-coveralls
 setuptools
 twine
 wheel

@@ -23,4 +23,3 @@ COPY synotools synotools
 
 VOLUME /app
 WORKDIR /app
-
