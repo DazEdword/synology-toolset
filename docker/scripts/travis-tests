@@ -9,6 +9,8 @@ mkdir artifacts || true
 chmod +x /usr/local/bin/bats || true
 dependencies/bats/bin/bats || true
 
+# Give explicit permission for all .bats scripts
+
 # Run tests normally
 /bin/bash ./docker/scripts/tests
 
