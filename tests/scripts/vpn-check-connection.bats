@@ -23,10 +23,6 @@ function teardown()
   export -f synovpnc
   run "$SCRIPT_UNDER_TEST"
 
-  # TODO FIXME Leaving those to diagnose travis error, remove when travis scrip tests work
-  echo "output = ${output}"
-  echo $(ls -la /app/synotools/scripts/)
-
   [ "$status" -eq 0 ]
   [ "${lines[0]}" = "Checking VPN connection..." ]
   [ "${lines[1]}" = "VPN connected: get_conn" ]

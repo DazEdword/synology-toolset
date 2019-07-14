@@ -16,5 +16,5 @@ before_script:
   - cp /home/travis/build/DazEdword/synology-toolset/.env.tests /home/travis/.synotools/credentials
   - docker-compose build tests
 script:
-  - docker-compose run tests docker/scripts/travis-tests
   - docker-compose run tests docker/scripts/scripts-tests
+  - docker-compose run tests docker/scripts/travis-tests
