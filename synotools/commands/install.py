@@ -29,7 +29,7 @@ def install_scripts(destination_username=None):
     )
 
     # Zip files
-    zipped_scripts = zip_folder("synology-scripts", SCRIPTS_PATH, ZIP_DESTINATION_PATH)
+    zipped_scripts = zip_folder("synology-scripts", SCRIPTS_PATH, ZIP_DESTINATION_PATH, [".py"])
 
     try:
         run_remote_installation_commands(

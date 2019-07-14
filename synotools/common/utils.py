@@ -8,12 +8,13 @@ from datetime import datetime
 logger = get_logger(__name__)
 
 
-def zip_folder(filename, origin_dir, destination_dir=None):
+def zip_folder(filename, origin_dir, destination_dir=None, exclude=[]):
     """Zips all files in a folder and returns path to zipped file"""
     logger.info(f"Preparing to zip all files in {origin_dir}...")
     file_paths = []
 
-    timestamp = datetime.utcnow().isoformat()
+    # Not ISO, but Linux/Win compatible filename
+    timestamp = datetime.utcnow().isoformat().replace(":", "")
 
     zipname = f"{filename}-{timestamp}.zip"
 
@@ -23,6 +24,10 @@ def zip_folder(filename, origin_dir, destination_dir=None):
     # Read all directory, subdirectories and file lists
     for root, directories, files in os.walk(origin_dir):
         for filename in files:
+            _, file_ext = os.path.splitext(filename)
+            if file_ext in exclude:
+                continue
+
             file_path = os.path.join(root, filename)
             file_paths.append(file_path)
 
