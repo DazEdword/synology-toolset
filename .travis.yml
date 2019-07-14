@@ -10,10 +10,11 @@ services:
   - docker
 before_script:
   - chmod -R 755 /home/travis/build/DazEdword/synology-toolset/docker/scripts/
-  - ls -la /home/travis/build/DazEdword/synology-toolset/docker/scripts/
+  - chmod -R 755 /home/travis/build/DazEdword/synology-toolset/synotools/scripts/
+  - ls -la /home/travis/build/DazEdword/synology-toolset/synotools/scripts/
   - mkdir -p /home/travis/.synotools/
   - cp /home/travis/build/DazEdword/synology-toolset/.env.tests /home/travis/.synotools/credentials
   - docker-compose build tests
 script:
   - docker-compose run tests docker/scripts/travis-tests
-  # - docker-compose run tests docker/scripts/scripts-tests
+  - docker-compose run tests docker/scripts/scripts-tests
