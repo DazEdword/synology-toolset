@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -e
 
 NOT_CONNECTED_MESSAGE="No connection!!"
 
@@ -9,6 +11,5 @@ result=$(synovpnc get_conn)
 if [[ $result == *"$NOT_CONNECTED_MESSAGE"* ]]; then
 	echo "VPN is not connected."
 else
-	echo "VPN connected:"
-	echo $result
+	echo "VPN connected: $result"
 fi
