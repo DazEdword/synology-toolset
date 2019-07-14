@@ -5,7 +5,7 @@ from fabric import Connection, Config
 
 from synotools.common.logging import get_logger
 from synotools.common.utils import zip_folder
-from synotools.models.config.syno import SynoConfig
+from synotools.models.config import SynoConfig
 from synotools.constants import SCRIPTS_PATH, ZIP_DESTINATION_PATH
 
 logger = get_logger(__name__)

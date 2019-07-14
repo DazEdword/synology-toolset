@@ -33,6 +33,11 @@ DELUGE_IP=deluge-ip
 DELUGE_PORT=deluge-port
 DELUGE_USERNAME=deluge-username
 DELUGE_PASSWORD=deluge-password
+
+# VPN settings
+VPN_ID=vpn-config-id
+VPN_NAME=vpn-config-name
+VPN_PROTOCOL=vpn-protocol
 ```
 
 A list of all fields can be found on `env.sample`, and this file can be used as a template for your credentials. Once populated and after completing [setup](#setup) you will be able to run commands:
@@ -80,6 +85,8 @@ b) Create your own user, as [described here](https://dev.deluge-torrent.org/wiki
 
 _Note: If a user is going to be created, folders in the NAS are likely to differ compared with the guide above depending on your system. Auth file might be located in `/var/packages/deluge/target/var`, for instance._
 
+### VPN client configuration ###
+The NAS can connect through a VPN network interface, which needs to be set up first. [This document](https://www.synology.com/en-us/knowledgebase/DSM/help/DSM/AdminCenter/connection_network_vpnclient) explains the process. Once a VPN profile has been set up and used at least once, VPN configuration may be retrieved from configuration and copied into the `credentials` file. These details can be obtained from `vpnc_last_connect` as [explained here](https://mickderksen.wordpress.com/2016/06/08/how-to-schedule-a-vpn-connection-on-synology/).
 
 ## Using the tools
 Most commands currently included in the tools are sh scripts expected to be hosted in the NAS, with either sh or python scripts that are run locally. Although most scripts can be run directly from python, a number of .docker scripts have been added so that anything can be run in one command.

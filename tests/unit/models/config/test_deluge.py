@@ -1,4 +1,4 @@
-from synotools.models.config.deluge import DelugeConfig
+from synotools.models.config import DelugeConfig
 
 
 def test_deluge_config_initialisation_has_correct_prefix():

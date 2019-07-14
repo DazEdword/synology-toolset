@@ -1,4 +1,4 @@
-from synotools.models.config.base import ConfigBase
+from synotools.models.config import ConfigBase
 
 
 class SynoConfig(ConfigBase):

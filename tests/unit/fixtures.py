@@ -1,6 +1,6 @@
 from unittest.mock import Mock
 
-from synotools.models.config.syno import SynoConfig
+from synotools.models.config import SynoConfig
 
 
 def create_syno_config_mock():

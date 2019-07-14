@@ -3,7 +3,7 @@ import logging
 
 from copy import deepcopy
 
-from synotools.models.config.base import ConfigBase
+from synotools.models.config import ConfigBase
 
 # log_file = "./logfile.log"
 log_level = logging.INFO

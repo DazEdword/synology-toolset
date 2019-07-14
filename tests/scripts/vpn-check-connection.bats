@@ -1,4 +1,5 @@
 #!/usr/bin/env bats
+
 function setup(){
     ORIGINAL_PATH="$BATS_TEST_DIRNAME"
 
@@ -15,16 +16,14 @@ function teardown()
     cd "$ORIGINAL_PATH"
 }
 
-function synovpnc(){ 
-  echo "called fake synovpnc"
-}
-
 @test "checks vpn connection status with synovpnc command and get_conn parameter" {  
   function synovpnc(){ 
     echo $1
   }
   export -f synovpnc
   run "$SCRIPT_UNDER_TEST"
+
+  echo "output = ${output}"
 
   [ "$status" -eq 0 ]
   [ "${lines[0]}" = "Checking VPN connection..." ]
@@ -45,7 +44,7 @@ function synovpnc(){
 }
 
 
-@test "echoes connection message when get_conn returns returns connection other than no connection messsge" { 
+@test "echoes connection message when get_conn returns returns connection other than no connection message" { 
   function synovpnc(){ 
     echo "TestVpn"
   }
