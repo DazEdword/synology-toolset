@@ -1,0 +1,1 @@
+VPN_CONNECTED_SUBSTRING = "VPN connected:"
