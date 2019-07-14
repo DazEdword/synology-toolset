@@ -16,4 +16,4 @@ before_script:
   - docker-compose build tests
 script:
   - docker-compose run tests docker/scripts/travis-tests
-  - docker-compose run tests docker/scripts/scripts-tests
+  # - docker-compose run tests docker/scripts/scripts-tests
