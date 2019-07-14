@@ -21,7 +21,8 @@ RUN git clone https://github.com/bats-core/bats-core.git && cd bats-core && ./in
 COPY docker/scripts docker/scripts
 COPY synotools synotools
 
-RUN chmod -R 755 synotools/scripts
+RUN ["chmod", "+x", "synotools/scripts/deluge-download.sh"]
+RUN ["chmod", "+x", "synotools/scripts/vpn-check-connection.sh"]
 
 VOLUME /app
 WORKDIR /app
