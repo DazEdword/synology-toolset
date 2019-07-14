@@ -5,6 +5,10 @@ set -u
 
 mkdir artifacts || true
 
+# Give explicit permission for bats to run
+chmod +x /usr/local/bin/bats || true
+dependencies/bats/bin/bats || true
+
 # Run tests normally
 /bin/bash ./docker/scripts/tests
 
