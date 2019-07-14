@@ -14,7 +14,7 @@ from synotools.common.utils import zip_folder
 def test_creates_and_returns_zipname_with_passed_base_and_timestamp(os_walk_mock, *_):
     actual = zip_folder("my-test-file", "my/test/path")
 
-    assert actual == "my-test-file-2019-06-28T00:00:00.zip"
+    assert actual == "my-test-file-2019-06-28T000000.zip"
 
 
 @freeze_time("2019-06-28")
@@ -44,7 +44,7 @@ def test_zips_files_with_flattened_paths(os_walk_mock, zipfile_mock, *_):
     zip_folder("my-test-file", "my/test/path")
 
     zipfile_mock.ZipFile.assert_called_once_with(
-        "my-test-file-2019-06-28T00:00:00.zip", "w"
+        "my-test-file-2019-06-28T000000.zip", "w"
     )
 
     zipfile_mock.ZipFile.return_value.call_count == 2
@@ -77,6 +77,22 @@ def test_adds_path_to_filename_when_destination_dir_is_provided(
     os_walk_mock, zipfile_mock, *_
 ):
     actual = zip_folder("my-test-file", "my/test/path", "my/destination/path")
-    expected = "my/destination/path/my-test-file-2019-06-28T00:00:00.zip"
+    expected = "my/destination/path/my-test-file-2019-06-28T000000.zip"
 
     assert actual == expected
+
+
+@freeze_time("2019-06-28")
+@patch("synotools.common.utils.zipfile")
+@patch("synotools.common.utils.logger")
+@patch(
+    "synotools.common.utils.os.walk",
+    return_value=[("project-root", [], ["file-one.txt", "file_two.py"])],
+)
+def test_excludes_files_by_passed_extension(os_walk_mock, logger_mock, *_):
+    zip_folder("my-test-file", "my/test/path", None, [".py"])
+
+    assert (
+        logger_mock.info.call_args_list[1][0][0]
+        == "Zipping files: ['project-root/file-one.txt']"
+    )
