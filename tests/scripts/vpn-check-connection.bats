@@ -24,6 +24,7 @@ function teardown()
   run "$SCRIPT_UNDER_TEST"
 
   echo "output = ${output}"
+  echo $(ls -la /app/synotools/scripts/)
 
   [ "$status" -eq 0 ]
   [ "${lines[0]}" = "Checking VPN connection..." ]
