@@ -1,6 +1,5 @@
 # import inspect
 import logging
-
 from copy import deepcopy
 
 from synotools.models.config import ConfigBase

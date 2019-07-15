@@ -1,6 +1,6 @@
 from unittest.mock import Mock
 
-from synotools.models.config import SynoConfig
+from synotools.models.config import SynoConfig, VpnConfig
 
 
 def create_syno_config_mock():
@@ -36,3 +36,11 @@ def create_deluge_config_mock():
     config_mock.ip = "deluge_service_host_mock"
 
     return config_mock
+
+
+def create_vpn_config_fake():
+    """Instance of the class, but with fake values.
+    It is .env independent"""
+    config_fake = VpnConfig(id="0123456789", name="vpn-fake-name", protocol="openvpn")
+
+    return config_fake

@@ -1,6 +1,6 @@
 import sys
 
-from fabric import Connection, Config
+from fabric import Config, Connection
 
 from synotools.commands.constants import VPN_CONNECTED_SUBSTRING
 from synotools.common.logging import get_logger
@@ -9,7 +9,7 @@ from synotools.models.config import SynoConfig, VpnConfig
 logger = get_logger(__name__)
 
 
-def connect_to_vpn():
+def check_and_connect():
     logger.debug("Checking VPN connection...")
     syno_config = SynoConfig()
 
@@ -34,7 +34,9 @@ def is_vpn_enabled(connection):
         logger.error(f"An error occurred: {e}")
         raise
 
-    return True if vpn_check_result.stdout.startswith(VPN_CONNECTED_SUBSTRING) else False
+    return (
+        True if vpn_check_result.stdout.startswith(VPN_CONNECTED_SUBSTRING) else False
+    )
 
 
 def connect_vpn(connection):
@@ -58,4 +60,4 @@ if __name__ == "__main__":
     except IndexError:
         pass
 
-    connect_to_vpn()
+    check_and_connect()

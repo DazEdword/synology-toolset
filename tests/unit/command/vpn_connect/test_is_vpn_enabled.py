@@ -1,6 +1,6 @@
-import pytest
+from unittest.mock import Mock, patch
 
-from unittest.mock import patch, Mock
+import pytest
 
 from synotools.commands.constants import VPN_CONNECTED_SUBSTRING
 from synotools.commands.vpn_connect import is_vpn_enabled
@@ -8,9 +8,7 @@ from tests.unit.fixtures import create_syno_config_mock
 
 
 @patch("synotools.commands.vpn_connect.logger")
-def test_calls_vpn_connection_check_script_via_open_fabric_connection(
-    logger_mock,
-):
+def test_calls_vpn_connection_check_script_via_open_fabric_connection(logger_mock,):
     connection_mock = Mock()
     connection_mock.sudo.return_value.stdout = "Command output."
 
@@ -21,11 +19,11 @@ def test_calls_vpn_connection_check_script_via_open_fabric_connection(
 
 
 @patch("synotools.commands.vpn_connect.logger")
-def test_returns_true_when_vpn_is_active(
-    logger_mock,
-):
+def test_returns_true_when_vpn_is_active(logger_mock,):
     connection_mock = Mock()
-    connection_mock.sudo.return_value.stdout = f"{VPN_CONNECTED_SUBSTRING} Extra command output."
+    connection_mock.sudo.return_value.stdout = (
+        f"{VPN_CONNECTED_SUBSTRING} Extra command output."
+    )
 
     actual = is_vpn_enabled(connection_mock)
 
@@ -33,9 +31,7 @@ def test_returns_true_when_vpn_is_active(
 
 
 @patch("synotools.commands.vpn_connect.logger")
-def test_returns_false_when_vpn_is_not_active(
-    logger_mock,
-):
+def test_returns_false_when_vpn_is_not_active(logger_mock,):
     connection_mock = Mock()
     connection_mock.sudo.return_value.stdout = f"Not very connected command output."
 
@@ -45,9 +41,7 @@ def test_returns_false_when_vpn_is_not_active(
 
 
 @patch("synotools.commands.vpn_connect.logger")
-def test_raises_exception_when_command_fails(
-    logger_mock,
-):
+def test_raises_exception_when_command_fails(logger_mock,):
     connection_mock = Mock()
     connection_mock.sudo.side_effect = [Exception("Derp.")]
 

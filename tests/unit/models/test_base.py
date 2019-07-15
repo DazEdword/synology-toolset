@@ -1,7 +1,7 @@
-import pytest
-
 from typing import Any
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
+
+import pytest
 
 from synotools.models.base import Model
 
