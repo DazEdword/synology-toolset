@@ -53,11 +53,4 @@ def connect_vpn(connection):
 
 
 if __name__ == "__main__":
-    torrent_url = None
-
-    try:
-        torrent_url = sys.argv[1]
-    except IndexError:
-        pass
-
     check_and_connect()
