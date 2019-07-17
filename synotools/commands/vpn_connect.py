@@ -21,7 +21,6 @@ def check_and_connect():
     )
 
     vpn_connected = is_vpn_enabled(connection)
-    print(vpn_connected)
 
     if not vpn_connected:
         connect_vpn(connection)
