@@ -17,7 +17,7 @@ def test_calls_vpn_connection_check_script_via_open_fabric_connection(*_,):
     connect_vpn(connection_mock)
 
     expected_command = ".scripts/vpn-connect.sh 0123456789 vpn-fake-name openvpn"
-    connection_mock.sudo.assert_called_once_with(expected_command)
+    connection_mock.sudo.assert_called_once_with(expected_command, warn=True)
 
 
 @patch(

@@ -17,7 +17,12 @@ conf_name=$config_name
 proto=$protocol
 END
 
-synovpnc connect --id=$config_id
+
+if hash synovpnc 2>/dev/null; then
+	result=$(synovpnc connect --id=$config_id)
+elif hash /usr/syno/bin/synovpnc 2>/dev/null; then
+	result=$(/usr/syno/bin/synovpnc connect --id=$config_id)
+fi
 
 if [ $? -eq 0 ]; then
     echo "Connected to $config_name"

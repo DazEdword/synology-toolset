@@ -8,14 +8,14 @@ from tests.unit.fixtures import create_syno_config_mock
 
 
 @patch("synotools.commands.vpn_connect.logger")
-def test_calls_vpn_connection_check_script_via_open_fabric_connection(logger_mock,):
+def test_calls_vpn_connection_check_script_via_open_fabric_connection(logger_mock):
     connection_mock = Mock()
     connection_mock.sudo.return_value.stdout = "Command output."
 
     is_vpn_enabled(connection_mock)
 
     expected_command = ".scripts/vpn-check-connection.sh"
-    connection_mock.sudo.assert_called_once_with(expected_command)
+    connection_mock.sudo.assert_called_once_with(expected_command, warn=True)
 
 
 @patch("synotools.commands.vpn_connect.logger")

@@ -1,3 +1,4 @@
+import argparse
 import sys
 
 from fabric import Config, Connection
@@ -20,6 +21,7 @@ def check_and_connect():
     )
 
     vpn_connected = is_vpn_enabled(connection)
+    print(vpn_connected)
 
     if not vpn_connected:
         connect_vpn(connection)
@@ -28,7 +30,7 @@ def check_and_connect():
 def is_vpn_enabled(connection):
     try:
         command = ".scripts/vpn-check-connection.sh"
-        vpn_check_result = connection.sudo(command)
+        vpn_check_result = connection.sudo(command, warn=True)
         logger.info(vpn_check_result)
     except Exception as e:
         logger.error(f"An error occurred: {e}")
@@ -45,7 +47,7 @@ def connect_vpn(connection):
 
     try:
         command = f".scripts/vpn-connect.sh {params}"
-        vpn_connect_result = connection.sudo(command)
+        vpn_connect_result = connection.sudo(command, warn=True)
         logger.info(vpn_connect_result)
     except Exception as e:
         logger.error(f"An error occurred: {e}")
