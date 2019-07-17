@@ -1,9 +1,9 @@
 import os
 from os.path import join
 from pathlib import Path
+from typing import Optional
 
 from dotenv import load_dotenv
-from typing import Optional
 
 
 def get_environmental_variable(var_name: str) -> Optional[str]:

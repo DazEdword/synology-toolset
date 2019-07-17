@@ -1,7 +1,8 @@
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
 
 from synotools.commands.install import run_remote_installation_commands
 from tests.unit.fixtures import create_syno_config_mock
+
 
 """
 Note: Since connection is handled with a context manager, many assertions

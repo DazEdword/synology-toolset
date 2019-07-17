@@ -1,7 +1,7 @@
-from synotools.models.config.syno import SynoConfig
-from synotools.settings import get_environmental_variable
-
 from SynologyDSM import SynologyDSM
+
+from synotools.models.config import SynoConfig
+from synotools.settings import get_environmental_variable
 
 
 def create_api_client():

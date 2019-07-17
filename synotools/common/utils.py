@@ -1,9 +1,8 @@
 import os
 import zipfile
+from datetime import datetime
 
 from synotools.common.logging import get_logger
-
-from datetime import datetime
 
 logger = get_logger(__name__)
 

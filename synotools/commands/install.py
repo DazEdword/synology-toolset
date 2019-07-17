@@ -1,12 +1,12 @@
 import os
 import sys
 
-from fabric import Connection, Config
+from fabric import Config, Connection
 
 from synotools.common.logging import get_logger
 from synotools.common.utils import zip_folder
-from synotools.models.config.syno import SynoConfig
 from synotools.constants import SCRIPTS_PATH, ZIP_DESTINATION_PATH
+from synotools.models.config import SynoConfig
 
 logger = get_logger(__name__)
 
@@ -29,7 +29,9 @@ def install_scripts(destination_username=None):
     )
 
     # Zip files
-    zipped_scripts = zip_folder("synology-scripts", SCRIPTS_PATH, ZIP_DESTINATION_PATH, [".py"])
+    zipped_scripts = zip_folder(
+        "synology-scripts", SCRIPTS_PATH, ZIP_DESTINATION_PATH, [".py"]
+    )
 
     try:
         run_remote_installation_commands(

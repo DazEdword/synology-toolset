@@ -1,10 +1,9 @@
 import sys
 
-from fabric import Connection, Config
+from fabric import Config, Connection
 
 from synotools.common.logging import get_logger
-from synotools.models.config.syno import SynoConfig
-from synotools.models.config.deluge import DelugeConfig
+from synotools.models.config import DelugeConfig, SynoConfig
 
 logger = get_logger(__name__)
 

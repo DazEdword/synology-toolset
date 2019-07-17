@@ -1,5 +1,6 @@
-from freezegun import freeze_time
 from unittest.mock import patch
+
+from freezegun import freeze_time
 
 from synotools.common.utils import zip_folder
 
