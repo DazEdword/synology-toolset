@@ -115,6 +115,13 @@ python synotools/command/download.py "<your-torrent>"
 # e.g python synotools/commands/download.py "magnet:?xt=urn:btih:336165b4134e3754fa6996d881a7e7b55a40eb68&dn=archlinux-2019.06.01-x86_64.iso&tr=udp://tracker.archlinux.org:6969&tr=http://tracker.archlinux.org:6969/announce"
 ```
 
+### Connect to VPN
+Check whether NAS is connected through a VPN, and connect if it's not.
+
+```python
+python synotools/commands/vpn_connect.py
+```
+
 ## Compatibility
 Tested with Synology's DS218j model.
 
