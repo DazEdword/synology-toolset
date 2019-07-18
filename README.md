@@ -19,7 +19,7 @@ Install the package with pip:
 python -m pip install synotools
 ```
 
-Create your credentials file in `~/.synology.credentials`:
+Create your credentials file in `~/.synotools/credentials`:
 
 ```
 # Device access credentials
