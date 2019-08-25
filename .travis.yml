@@ -17,3 +17,4 @@ before_script:
 script:
   - docker-compose run tests docker/scripts/scripts-tests
   - docker-compose run tests docker/scripts/travis-tests
+  - docker-compose run tests docker/scripts/linting

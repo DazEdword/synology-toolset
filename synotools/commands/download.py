@@ -22,7 +22,13 @@ def download_torrent_with_deluge(torrent_url):
     )
 
     try:
-        command = f'.scripts/deluge-download.sh "{deluge_connection}" {deluge_config.username} {deluge_config.password} "{torrent_url}"'
+        command = '.scripts/deluge-download.sh "{d_conn}" {d_user} {d_password} "{torrent_url}"'.format(
+            d_conn=deluge_connection,
+            d_user=deluge_config.username,
+            d_password=deluge_config.password,
+            torrent_url=torrent_url,
+        )
+
         result = connection.sudo(command)
         logger.info(result)
     except Exception as e:

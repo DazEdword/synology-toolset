@@ -2,9 +2,8 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from synotools.commands.constants import VPN_CONNECTED_SUBSTRING
 from synotools.commands.vpn_connect import connect_vpn
-from tests.unit.fixtures import create_syno_config_mock, create_vpn_config_fake
+from tests.unit.fixtures import create_vpn_config_fake
 
 
 @patch("synotools.commands.vpn_connect.logger")

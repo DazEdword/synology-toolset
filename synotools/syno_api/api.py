@@ -1,13 +1,13 @@
 from SynologyDSM import SynologyDSM
 
 from synotools.models.config import SynoConfig
-from synotools.settings import get_environmental_variable
 
 
-def create_api_client():
+def create_api_client(syno_config=None):
     print("Creating Valid API Client")
 
-    syno_config = SynoConfig()
+    if not syno_config:
+        syno_config = SynoConfig()
 
     client = SynologyDSM(
         syno_config.ip, syno_config.port, syno_config.username, syno_config.password

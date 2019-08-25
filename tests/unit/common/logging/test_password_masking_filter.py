@@ -1,7 +1,7 @@
 from unittest.mock import Mock
 
 from synotools.common.logging import PasswordMaskingFilter, get_logger
-from synotools.models.config import ConfigBase, SynoConfig
+from synotools.models.config import ConfigBase
 from tests.unit.fixtures import create_syno_config_fake
 
 logger = get_logger(__name__)

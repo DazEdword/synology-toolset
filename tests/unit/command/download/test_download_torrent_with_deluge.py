@@ -1,8 +1,7 @@
 from unittest.mock import patch
 
 from synotools.commands.download import download_torrent_with_deluge
-from tests.unit.fixtures import (create_deluge_config_mock,
-                                 create_syno_config_mock)
+from tests.unit.fixtures import create_deluge_config_mock, create_syno_config_mock
 
 TORRENT_URL = "https://www.archlinux.org/releng/releases/2019.06.01/torrent/"
 
@@ -59,7 +58,7 @@ def test_creates_fabric_connection_with_correct_credentials(
     connection_mock.assert_called_once_with(
         host="host_mock", user="user_mock", config=config_mock.return_value
     )
-    expected_command = '.scripts/deluge-download.sh "deluge_service_host_mock:8888" deluge_user_mock deluge_password_mock "https://www.archlinux.org/releng/releases/2019.06.01/torrent/"'
+    expected_command = '.scripts/deluge-download.sh "deluge_service_host_mock:8888" deluge_user_mock deluge_password_mock "https://www.archlinux.org/releng/releases/2019.06.01/torrent/"'  # noqa: E501
     connection_mock.return_value.sudo.assert_called_once_with(expected_command)
 
 

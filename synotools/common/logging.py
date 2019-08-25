@@ -27,7 +27,7 @@ class PasswordMaskingFilter(logging.Filter):
         try:
             # This is done in two steps to avoid setting password
             # values to config objects that do not have one
-            password_value = config_copy.password
+            config_copy.password
             config_copy.password = "********"
         except (AttributeError, NameError):
             pass

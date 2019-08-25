@@ -66,7 +66,7 @@ def test_creates_transfers_zipped_files(connection_mock, *_):
 @patch("synotools.commands.install.Config")
 @patch("synotools.commands.install.os.path")
 @patch("synotools.commands.install.Connection")
-def test_creates_transfers_zipped_files(connection_mock, os_path_mock, *_):
+def test_runs_unzip_command_on_destination(connection_mock, os_path_mock, *_):
     os_path_mock.join.return_value = "processed/path/files.zip"
     syno_config = create_syno_config_mock()
     run_remote_installation_commands(
