@@ -8,7 +8,7 @@ def test_config_base_initialisation_logs_message_when_config_prefix_is_not_set(
     logging_mock
 ):
     # Act
-    actual = ConfigBase()
+    ConfigBase()
 
     logging_mock.warning.assert_called_once_with(
         f"A config prefix is required to instance ConfigBase"
@@ -23,7 +23,7 @@ def test_config_base_initialisation_get_fields_from_config_when_prefix_is_set(
     # Act
     with patch.object(ConfigBase, "_config_prefix", "TEST_CONFIG_PREFIX"):
         with patch.object(ConfigBase, "FIELDS", ["field_1", "field_2"]):
-            actual = ConfigBase()
+            ConfigBase()
 
             assert get_environmental_variable_mock.call_count == 2
             assert (

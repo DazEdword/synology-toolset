@@ -1,6 +1,3 @@
-import argparse
-import sys
-
 from fabric import Config, Connection
 
 from synotools.commands.constants import VPN_CONNECTED_SUBSTRING

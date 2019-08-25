@@ -4,7 +4,6 @@ import pytest
 
 from synotools.commands.constants import VPN_CONNECTED_SUBSTRING
 from synotools.commands.vpn_connect import is_vpn_enabled
-from tests.unit.fixtures import create_syno_config_mock
 
 
 @patch("synotools.commands.vpn_connect.logger")
