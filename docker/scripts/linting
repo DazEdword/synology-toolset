@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -o pipefail
+set -u
+
+echo "Running black diff..."
+black --diff .
+echo "Running flake8..."
+flake8 .
+echo "Done!"
