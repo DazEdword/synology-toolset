@@ -1,10 +1,15 @@
 #!/bin/bash
 
-set -o pipefail
+set -eo pipefail
 set -u
 
 echo "Running black diff..."
 black --diff .
+
 echo "Running flake8..."
 flake8 .
+
+echo "Checking import sorting..."
+isort -rc . --check-only
+
 echo "Done!"

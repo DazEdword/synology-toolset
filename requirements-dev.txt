@@ -6,6 +6,7 @@ coverage
 coveralls
 flake8
 freezegun
+isort
 mypy
 pytest
 pytest-mock
