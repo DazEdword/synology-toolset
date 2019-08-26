@@ -1,5 +1,3 @@
-import os
-
 from synotools.settings import Settings
 
 
