@@ -1,5 +1,3 @@
-from unittest.mock import patch, Mock
-
 from synotools.settings import Settings
 
 
