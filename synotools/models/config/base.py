@@ -1,13 +1,14 @@
 import logging
 
 from synotools.models.base import Model
-from synotools.settings import get_environmental_variable
+from synotools.settings import Settings
 
 
 class ConfigBase(Model):
     """Model subclass that populates attributes via config file."""
 
     _config_prefix = None
+    _settings = Settings()
 
     def __init__(self, **data):
         # If no keys are passed, values for fields will be taken from .env
@@ -25,4 +26,6 @@ class ConfigBase(Model):
         super().__init__(**data)
 
     def get_field_from_config(self, config_prefix, field):
-        return get_environmental_variable(f"{config_prefix}_{field.upper()}")
+        return self._settings.get_environmental_variable(
+            f"{config_prefix}_{field.upper()}"
+        )

@@ -1,7 +1,8 @@
 from unittest.mock import patch
 
 from synotools.commands.download import download_torrent_with_deluge
-from tests.unit.fixtures import create_deluge_config_mock, create_syno_config_mock
+from tests.unit.fixtures import (create_deluge_config_mock,
+                                 create_syno_config_mock)
 
 TORRENT_URL = "https://www.archlinux.org/releng/releases/2019.06.01/torrent/"
 

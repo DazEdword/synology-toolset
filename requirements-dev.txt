@@ -6,8 +6,10 @@ coverage
 coveralls
 flake8
 freezegun
+isort
 mypy
 pytest
+pytest-mock
 setuptools
 twine
 wheel
