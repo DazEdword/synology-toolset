@@ -16,7 +16,7 @@ def test_config_base_initialisation_logs_message_when_config_prefix_is_not_set(
 
 
 @patch("synotools.models.config.base.setattr")
-@patch("synotools.models.config.base.get_environmental_variable")
+@patch("synotools.models.config.base.Settings.get_environmental_variable")
 def test_config_base_initialisation_get_fields_from_config_when_prefix_is_set(
     get_environmental_variable_mock, setattr_mock
 ):
@@ -36,7 +36,7 @@ def test_config_base_initialisation_get_fields_from_config_when_prefix_is_set(
             )
 
 
-@patch("synotools.models.config.base.get_environmental_variable")
+@patch("synotools.models.config.base.Settings.get_environmental_variable")
 def test_get_field_from_config_gets_fields_using_attr_name_and_config_prefix(
     get_environmental_variable_mock
 ):
