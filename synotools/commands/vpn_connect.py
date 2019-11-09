@@ -20,7 +20,9 @@ def check_and_connect():
     vpn_connected = is_vpn_enabled(connection)
 
     if not vpn_connected:
-        connect_vpn(connection)
+        vpn_connected = connect_vpn(connection)
+
+    return vpn_connected
 
 
 def is_vpn_enabled(connection):
@@ -28,8 +30,8 @@ def is_vpn_enabled(connection):
         command = ".scripts/vpn-check-connection.sh"
         vpn_check_result = connection.sudo(command, warn=True)
         logger.info(vpn_check_result)
-    except Exception as e:
-        logger.error(f"An error occurred: {e}")
+    except Exception:
+        logger.exception(f"An error occurred.")
         raise
 
     return (
@@ -44,7 +46,7 @@ def connect_vpn(connection):
     try:
         command = f".scripts/vpn-connect.sh {params}"
         vpn_connect_result = connection.sudo(command, warn=True)
-        logger.info(vpn_connect_result)
+        return vpn_connect_result.ok
     except Exception as e:
         logger.error(f"An error occurred: {e}")
         raise

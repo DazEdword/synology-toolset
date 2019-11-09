@@ -1,14 +1,21 @@
+import argparse
 import sys
 
 from fabric import Config, Connection
 
+from synotools.commands.vpn_connect import check_and_connect
 from synotools.common.logging import get_logger
 from synotools.models.config import DelugeConfig, SynoConfig
 
 logger = get_logger(__name__)
 
 
-def download_torrent_with_deluge(torrent_url):
+def download_torrent_with_deluge(torrent_url, skip_vpn=False):
+    if skip_vpn:
+        logger.info("Skipping VPN checks...")
+    else:
+        check_and_connect()
+
     logger.debug("Creating config files...")
     syno_config = SynoConfig()
     deluge_config = DelugeConfig()
@@ -38,9 +45,20 @@ def download_torrent_with_deluge(torrent_url):
 if __name__ == "__main__":
     torrent_url = None
 
-    try:
-        torrent_url = sys.argv[1]
-    except IndexError:
-        pass
+    parser = argparse.ArgumentParser(description="Download torrent with Deluge.")
+    parser.add_argument(
+        "torrent_url", type=str, help="the torrent url or magnet to download"
+    )
+    parser.add_argument(
+        "--no-vpn",
+        dest="no_vpn",
+        action="store_true",
+        help="skip vpn check and/or vpn connection (if disabled)",
+        required=False,
+    )
 
-    download_torrent_with_deluge(torrent_url)
+    args = parser.parse_args()
+    torrent_url = args.torrent_url
+    no_vpn = args.no_vpn
+
+    download_torrent_with_deluge(torrent_url, no_vpn)
