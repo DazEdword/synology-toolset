@@ -31,3 +31,35 @@ def test_logs_error_ans_raises_exception_when_fabric_process_fails(logger_mock, 
         connect_vpn(connection_mock)
 
     logger_mock.error.assert_called_once_with("An error occurred: Hah! Didn't work.")
+
+
+@patch(
+    "synotools.commands.vpn_connect.VpnConfig", return_value=create_vpn_config_fake()
+)
+@patch("synotools.commands.vpn_connect.logger")
+def test_returns_true_when_remote_script_succeeds(logger_mock, *_):
+    # Arrange
+    connection_mock = Mock()
+    connection_mock.sudo.return_value = Mock(ok=True)
+
+    # Act
+    actual = connect_vpn(connection_mock)
+
+    # Assert
+    assert actual is True
+
+
+@patch(
+    "synotools.commands.vpn_connect.VpnConfig", return_value=create_vpn_config_fake()
+)
+@patch("synotools.commands.vpn_connect.logger")
+def test_returns_false_when_remote_script_fails(logger_mock, *_):
+    # Arrange
+    connection_mock = Mock()
+    connection_mock.sudo.return_value = Mock(ok=False)
+
+    # Act
+    actual = connect_vpn(connection_mock)
+
+    # Assert
+    assert actual is False

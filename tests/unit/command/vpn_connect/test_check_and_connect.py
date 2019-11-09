@@ -94,3 +94,48 @@ def test_connects_if_check_retrieves_it_is_not_connected(
     check_and_connect()
 
     connect_vpn_mock.assert_called_once_with(connection_mock.return_value)
+
+
+@patch("synotools.commands.vpn_connect.logger")
+@patch(
+    "synotools.commands.vpn_connect.SynoConfig", return_value=create_syno_config_mock()
+)
+@patch("synotools.commands.vpn_connect.Config")
+@patch("synotools.commands.vpn_connect.connect_vpn")
+@patch("synotools.commands.vpn_connect.is_vpn_enabled")
+@patch("synotools.commands.vpn_connect.Connection")
+def test_returns_true_when_vpn_is_already_connected(
+    connection_mock, is_vpn_enabled_mock, connect_vpn_mock, *_
+):
+    # Arrange
+    is_vpn_enabled_mock.return_value = True
+
+    # Act
+    actual = check_and_connect()
+
+    # Assert
+    assert actual is True
+    assert not connect_vpn_mock.called
+
+
+@patch("synotools.commands.vpn_connect.logger")
+@patch(
+    "synotools.commands.vpn_connect.SynoConfig", return_value=create_syno_config_mock()
+)
+@patch("synotools.commands.vpn_connect.Config")
+@patch("synotools.commands.vpn_connect.connect_vpn")
+@patch("synotools.commands.vpn_connect.is_vpn_enabled")
+@patch("synotools.commands.vpn_connect.Connection")
+def test_returns_true_when_vpn_is_attempted_to_connect_and_succeeds(
+    connection_mock, is_vpn_enabled_mock, connect_vpn_mock, *_
+):
+    # Arrange
+    is_vpn_enabled_mock.return_value = False
+    connect_vpn_mock.return_value = True
+
+    # Act
+    actual = check_and_connect()
+
+    # Assert
+    assert actual is True
+    connect_vpn_mock.assert_called_once_with(connection_mock.return_value)
