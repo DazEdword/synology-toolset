@@ -19,7 +19,12 @@ Install the package with pip:
 python -m pip install synotools
 ```
 
+Unix users (Linux, Mac)
 Create your credentials file in `~/.synotools/credentials`:
+
+Windows users:
+Use `C:\Users\<YourUsername>\.synotools\credentials.txt` instead.
+
 
 ```
 # Device access credentials
