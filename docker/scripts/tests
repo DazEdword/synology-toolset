@@ -12,7 +12,7 @@ echo "--> Running tests with coverage..."
 
 coverage run \
     --source=synotools \
-    -- $(which pytest) -v --durations=20 --tb=short --junit-xml=artifacts/test-report.xml tests/unit
+    -- $(which pytest) -v --durations=20 --tb=short --junit-xml=artifacts/test-report.xml tests/unit tests/integration/settings
 
 echo "--> Coverage stats..."
 coverage html

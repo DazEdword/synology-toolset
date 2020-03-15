@@ -4,7 +4,7 @@ from synotools.settings import Settings
 def test_get_environmental_variable_loads_credentials_from_expected_location(mocker):
 
     mocker.patch(
-        "synotools.settings.Settings.get_local_credentials_path",
+        "synotools.settings.Settings.credentials_path",
         "home/test-user/.my-test/credentials",
     )
 
