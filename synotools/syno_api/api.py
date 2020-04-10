@@ -1,4 +1,4 @@
-from SynologyDSM import SynologyDSM
+from synology_dsm import SynologyDSM
 
 from synotools.models.config import SynoConfig
 

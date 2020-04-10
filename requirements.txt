@@ -1,3 +1,0 @@
-fabric                  # https://github.com/fabric/fabric
-python-dotenv           # https://github.com/theskumar/python-dotenv
-python-synology         # https://github.com/StaticCube/python-synology
