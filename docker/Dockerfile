@@ -16,7 +16,7 @@ RUN echo "IdentityFile ~/.ssh/$SSH_KEY_NAME" >> /etc/ssh/ssh_config
 
 COPY .env.tests /root/.synotools/credentials
 
-RUN pipenv install --dev --pre
+RUN pipenv install --system --dev --pre
 RUN git clone https://github.com/bats-core/bats-core.git && cd bats-core && ./install.sh /usr/local
 
 COPY docker/scripts docker/scripts
