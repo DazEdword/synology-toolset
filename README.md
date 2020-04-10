@@ -135,11 +135,12 @@ This software has been created and is maintained in Linux Mint, but developers s
 
 * Docker
 * Git
+* Pipenv
 
 ### Dependencies
 There are two types of dependencies:
 
-* Python Packages: Handled automatically thanks to `pip3`. They are included in requirements file, `requirements.txt` for the tools themselves, and `requirements-dev.txt` for all peripheric development tools. 
+* Python Packages: Handled automatically thanks to `pip` and `pipenv`. Both the core and development dependencies are included in the project's `Pipfile`. 
 * Other Dependencies: In order to prevent the developers' system from cluttering, all external dependencies that are not installable with package managers are supposed to sit in the `dependencies` folder. Scripts are provided to install these automatically.
 
 ### Development environment setup
