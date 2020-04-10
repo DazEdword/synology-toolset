@@ -1,11 +1,12 @@
-FROM python:3
+FROM python:3.6
 
 ENV PYTHONPATH="$PYTHONPATH:/app"
 
 RUN pip install --upgrade pip
+RUN pip install pipenv
 
-COPY requirements.txt requirements.txt
-COPY requirements-dev.txt requirements-dev.txt
+COPY Pipfile Pipfile
+COPY Pipfile.lock Pipfile.lock
 COPY install-bats.sh install-bats.sh
 COPY install-bats-core.sh install-bats-core.sh
 
@@ -15,7 +16,7 @@ RUN echo "IdentityFile ~/.ssh/$SSH_KEY_NAME" >> /etc/ssh/ssh_config
 
 COPY .env.tests /root/.synotools/credentials
 
-RUN pip3 --no-cache-dir install -r requirements-dev.txt
+RUN pipenv install --dev --pre
 RUN git clone https://github.com/bats-core/bats-core.git && cd bats-core && ./install.sh /usr/local
 
 COPY docker/scripts docker/scripts
