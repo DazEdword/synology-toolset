@@ -18,3 +18,10 @@ script:
   - docker-compose run tests docker/scripts/scripts-tests
   - docker-compose run tests docker/scripts/travis-tests
   - docker-compose run tests docker/scripts/linting
+deploy:
+  provider: pypi
+  user: __token__
+  password:
+    secure: iMogaeZgy1lfZ8BwDgSnSUWk5X+bRR1KL4rZKlrEkbLBpqkiNzRVAGC3SV68wj+67gZkL2xnL36YLEgoSFcPVAZW5EARUlTBGaaDrsnQLmiI61J9muib93Wa7dqz3ESaY9/SU2jaLcODGbsdQoMPHNIfVbSZ2iKJFHa3nW+93fEMlB+08oy5AJAUn9qIlWRkNeXmuBJq2AzP1OQ/NBcD7WXiorEKM6uwUxX+bex6/Mfuo03asbJiSxVt03IGxzmMFkkd8BvORoV4WTnLOyFgQRJ3IygygD7voxcJT3hYjgjvW6ESto7bonBeajVHJ0U4B13fLgRZ52jQXvwGr4AWrMqPyxShgD/Jq6d/IDKOgTADGBGExaamEAeJpBjgpf15TbLsRDj0EQ2dB6ZVUbnJtcxL4wSvAwWaJPN+SOZWN27Xm/LC2WXXc1oHZcpV6vsCCyFE/99WR5TZuFANBfXTihdIpHiMR+VU9hQOMXThZwptbTZloBlk9WnUJNJt2uei9BiGXAkU+dtNMs2L7pJxniOaZAkRclrqxSmCs7J7AChAk8XY8Ttts4sp7R74egeg7fntMenWB1p5pqh6SCmx9ajMeMI/W16LZnuVtTuVm+dQ3GWupH/l1AY9T1lHlcKnywwwe4sZvnMFGnBL6ne/VP75DCx/GNga4iHQFakUN0o=
+  on:
+    branch: master
