@@ -18,7 +18,7 @@ def test_calls_vpn_connection_check_script_via_open_fabric_connection(logger_moc
 
 
 @patch("synotools.commands.vpn_connect.logger")
-def test_returns_true_when_vpn_is_active(logger_mock,):
+def test_returns_true_when_vpn_is_active(logger_mock):
     connection_mock = Mock()
     connection_mock.sudo.return_value.stdout = (
         f"{VPN_CONNECTED_SUBSTRING} Extra command output."
@@ -30,7 +30,7 @@ def test_returns_true_when_vpn_is_active(logger_mock,):
 
 
 @patch("synotools.commands.vpn_connect.logger")
-def test_returns_false_when_vpn_is_not_active(logger_mock,):
+def test_returns_false_when_vpn_is_not_active(logger_mock):
     connection_mock = Mock()
     connection_mock.sudo.return_value.stdout = "Not very connected command output."
 
@@ -40,7 +40,9 @@ def test_returns_false_when_vpn_is_not_active(logger_mock,):
 
 
 @patch("synotools.commands.vpn_connect.logger")
-def test_raises_exception_when_command_fails(logger_mock,):
+def test_raises_exception_when_command_fails(
+    logger_mock,
+):
     connection_mock = Mock()
     connection_mock.sudo.side_effect = [Exception("Derp.")]
 
