@@ -24,9 +24,10 @@ def install_scripts(destination_username=None):
     )
 
     # Build sftp and absolute paths
-    remote_sftp_destination_path, remote_absolute_destination_path = build_destination_paths(
-        destination_username
-    )
+    (
+        remote_sftp_destination_path,
+        remote_absolute_destination_path,
+    ) = build_destination_paths(destination_username)
 
     # Zip files
     zipped_scripts = zip_folder(

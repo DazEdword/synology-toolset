@@ -5,13 +5,13 @@ from synotools.models.config.base import ConfigBase
 
 @patch("synotools.models.config.base.logging")
 def test_config_base_initialisation_logs_message_when_config_prefix_is_not_set(
-    logging_mock
+    logging_mock,
 ):
     # Act
     ConfigBase()
 
     logging_mock.warning.assert_called_once_with(
-        f"A config prefix is required to instance ConfigBase"
+        "A config prefix is required to instance ConfigBase"
     )
 
 
@@ -38,7 +38,7 @@ def test_config_base_initialisation_get_fields_from_config_when_prefix_is_set(
 
 @patch("synotools.models.config.base.Settings.get_environmental_variable")
 def test_get_field_from_config_gets_fields_using_attr_name_and_config_prefix(
-    get_environmental_variable_mock
+    get_environmental_variable_mock,
 ):
     config = ConfigBase()
 

@@ -85,7 +85,7 @@ def test_logs_message_when_exception_occurs(connection_mock, logger_mock, *_):
     download_torrent_with_deluge(TORRENT_URL)
 
     logger_mock.error.assert_called_once_with(
-        f"An error occurred: Uh oh, something happened!"
+        "An error occurred: Uh oh, something happened!"
     )
 
 

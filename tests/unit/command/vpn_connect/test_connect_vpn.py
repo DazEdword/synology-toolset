@@ -10,7 +10,9 @@ from tests.unit.fixtures import create_vpn_config_fake
 @patch(
     "synotools.commands.vpn_connect.VpnConfig", return_value=create_vpn_config_fake()
 )
-def test_calls_vpn_connection_check_script_via_open_fabric_connection(*_,):
+def test_calls_vpn_connection_check_script_via_open_fabric_connection(
+    *_,
+):
     connection_mock = Mock()
 
     connect_vpn(connection_mock)
