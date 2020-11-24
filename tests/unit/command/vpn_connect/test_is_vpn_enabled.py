@@ -32,7 +32,7 @@ def test_returns_true_when_vpn_is_active(logger_mock,):
 @patch("synotools.commands.vpn_connect.logger")
 def test_returns_false_when_vpn_is_not_active(logger_mock,):
     connection_mock = Mock()
-    connection_mock.sudo.return_value.stdout = f"Not very connected command output."
+    connection_mock.sudo.return_value.stdout = "Not very connected command output."
 
     actual = is_vpn_enabled(connection_mock)
 

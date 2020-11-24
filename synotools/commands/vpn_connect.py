@@ -31,7 +31,7 @@ def is_vpn_enabled(connection):
         vpn_check_result = connection.sudo(command, warn=True)
         logger.info(vpn_check_result)
     except Exception:
-        logger.exception(f"An error occurred.")
+        logger.exception("An error occurred.")
         raise
 
     return (
