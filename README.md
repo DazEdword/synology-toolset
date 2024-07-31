@@ -1,6 +1,4 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Build Status](https://travis-ci.org/DazEdword/synology-toolset.svg?branch=master)](https://travis-ci.org/DazEdword/synology-toolset.svg)
-[![Coverage Status](https://coveralls.io/repos/github/DazEdword/synology-toolset/badge.svg?branch=master)](https://coveralls.io/github/DazEdword/synology-toolset?branch=master)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
 
@@ -155,9 +153,7 @@ git clone git@github.com:DazEdword/synology-toolset.git
 3- Ensure all scripts are executable.
 
 ```
-cd </path/to/project/root>
-find . -type f -iname "*.sh" -exec chmod +x {} \;
-find docker/scripts/ -type f -exec chmod +x {} \;
+make permissions
 ```
 
 ### Running tests
@@ -166,17 +162,17 @@ Several Docker scripts have been set up to unambiguously run a subset of tests, 
 
 ```bash
 # Unit tests
-./tests.docker
+make test/unit
 ```
 
 ```bash
 # Scripts tests (bash unit tests)
-./tests-scripts.docker
+make test/scripts
 ```
 
 ```bash
 # Integration tests
-./integration-tests.docker
+make test/integration
 ```
 
 Alternatively, a virtual environment could be created and all dependencies installed via scripts, allowing for richer test runs as covered in [pytest's documentation](https://docs.pytest.org/en/latest/).

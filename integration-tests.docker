@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -eox pipefail
-set -u
-
-docker-compose build tests
-docker-compose run --rm tests docker/scripts/integration-tests
-
